@@ -1282,12 +1282,12 @@ html, body {
 .feed { height: 100dvh; overflow-y: scroll; scroll-snap-type: y mandatory; overscroll-behavior-y: none; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .feed::-webkit-scrollbar { display: none; }
 
-.card { height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: var(--space-4); padding-top: calc(var(--safe-top) + 52px); padding-bottom: calc(var(--safe-bottom) + var(--space-7)); position: relative; user-select: none; -webkit-user-select: none; content-visibility: auto; contain-intrinsic-size: 100dvh; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px; }
-.card-inner { position: relative; width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-6) var(--space-5); border-radius: var(--radius-lg); background: var(--bg-card); backdrop-filter: blur(24px) saturate(1.2); -webkit-backdrop-filter: blur(24px) saturate(1.2); border: 1px solid rgba(255,255,255,0.06); overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease; transform: translateZ(0); will-change: transform; }
+.card { height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: var(--space-4); padding-top: calc(var(--safe-top) + 52px); padding-bottom: calc(var(--safe-bottom) + var(--space-7)); position: relative; user-select: none; -webkit-user-select: none; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px; }
+.card-inner { position: relative; width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-6) var(--space-5); border-radius: var(--radius-lg); background: var(--bg-card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease; transform: translateZ(0); will-change: transform; }
 .card-inner::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: linear-gradient(135deg, var(--accent-glow), transparent 50%, var(--accent2-glow)); z-index: -1; opacity: 0; transition: opacity 0.6s ease; }
 .card.is-active .card-inner::before { opacity: 1; }
-.card::before { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow), transparent 70%); top: 15%; left: -20%; filter: blur(60px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
-.card::after { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, var(--accent2-glow), transparent 70%); bottom: 20%; right: -15%; filter: blur(50px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+.card::before { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow), transparent 70%); top: 15%; left: -20%; filter: blur(40px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+.card::after { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, var(--accent2-glow), transparent 70%); bottom: 20%; right: -15%; filter: blur(30px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
 .card.is-active::before, .card.is-active::after { opacity: 1; }
 
 .card-number { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
@@ -1299,7 +1299,7 @@ html, body {
 .card-formula .vec { text-decoration: overline; }
 .card-formula::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; border: 1px solid transparent; background: linear-gradient(135deg, var(--accent-glow), transparent, var(--accent2-glow)) border-box; mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 @keyframes formulaGlow { 0%, 100% { box-shadow: 0 0 15px var(--accent-glow), inset 0 0 15px rgba(0,0,0,0.2); } 50% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-dim), inset 0 0 15px rgba(0,0,0,0.2); } }
-.card.is-active .card-formula { animation: formulaGlow 3s ease-in-out infinite; }
+.card.is-active .card-formula { /* animation removed for performance */ }
 .card-analogy { font-size: 0.8rem; font-style: italic; color: var(--text-muted); line-height: 1.5; padding-left: var(--space-3); border-left: 2px solid var(--accent-dim); }
 .card-analogy .analogy-icon { font-style: normal; margin-right: var(--space-1); }
 .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
