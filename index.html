@@ -426,246 +426,273 @@ const DB = {
   "units_dimensions": [
   {
     "id": 1,
-    "hook": "Measuring\nThe Universe",
-    "story": "Physics relies on things we can actually measure, called physical quantities. Every measurement consists of a number and a unit. Interestingly, if you change the unit to be smaller, the numerical value gets proportionally larger, so the overall magnitude stays perfectly constant.",
-    "formula": "n<sub>1</sub>u<sub>1</sub> = n<sub>2</sub>u<sub>2</sub> = Constant",
-    "formulaSub": "n is the numerical value and u is the unit of measurement.",
-    "analogy": "If you cut a pizza into smaller slices, you get more slices, but the total amount of pizza remains exactly the same.",
-    "topic": "Units and Dimensions"
+    "hook": "Why Physics Needs\nMeasurement",
+    "story": "Physics explains nature by discovering patterns that remain true everywhere. Such patterns can only be tested when observations are measured objectively instead of described subjectively. Any measurable property that can define, compare, verify, or predict a physical phenomenon is called a physical quantity. Every measurement combines a numerical value with a standard unit so scientists across the world obtain identical meaning from the result.",
+    "formula": "Q = n × u\nn₁u₁ = n₂u₂",
+    "formulaSub": "Q = physical quantity, n = numerical value, u = unit. Changing the unit changes only n, not Q.",
+    "topic": "Physical Quantity",
+    "analogy": "GPS works because everyone measures locations using the same coordinate system."
   },
   {
     "id": 2,
-    "hook": "The Building\nBlocks",
-    "story": "Just like the entire English language is built from 26 letters, all of physics can be described using just a few independent base quantities. The International System (SI) recognizes seven fundamental quantities that cover the entire span of physical phenomena. These basic quantities are independent of each other and cannot be further broken down.",
-    "formula": "[L], [M], [T], [K], [A], [Cd], [mol]",
-    "formulaSub": "The dimensional symbols for length, mass, time, temperature, current, luminous intensity, and amount of substance.",
-    "analogy": "They are like the primary colors\u2014red, blue, and yellow\u2014from which you can mix any other color in the universe.",
-    "topic": "Units and Dimensions"
+    "hook": "The Building Blocks\nOf Measurement",
+    "story": "Some physical quantities are independent and cannot be expressed using other quantities. These are fundamental quantities. Every other measurable quantity in physics is obtained by mathematically combining them, making the entire measurement system consistent and universal.",
+    "formula": "SI base quantities: Length, Mass, Time, Electric Current, Temperature, Amount of Substance, Luminous Intensity",
+    "formulaSub": "These seven quantities form the foundation of the SI system.",
+    "topic": "Fundamental Quantities",
+    "analogy": "Like primary colors creating every other color, base quantities create every derived quantity."
   },
   {
     "id": 3,
-    "hook": "Mixing\nThe Basics",
-    "story": "When you multiply or divide fundamental quantities, you get derived quantities. For example, multiplying length by length gives you area, while dividing distance by time gives you velocity. These quantities represent more complex physical concepts but are ultimately just combinations of the basic building blocks.",
-    "formula": "v = d / t",
-    "formulaSub": "Velocity (v) is derived from distance (d) and time (t).",
-    "analogy": "It's like baking a cake by combining basic ingredients like flour, sugar, and eggs in different proportions.",
-    "topic": "Units and Dimensions"
+    "hook": "Everything Else\nIs Derived",
+    "story": "A derived quantity is obtained by combining fundamental quantities through multiplication or division. Speed, force, energy and pressure are not independent ideas but mathematical combinations of base quantities, allowing complex physical laws to be expressed using a common measurement framework.",
+    "formula": "Derived Quantity = Combination of Base Quantities",
+    "formulaSub": "Example: Speed = Length/Time, Force = Mass × Acceleration.",
+    "topic": "Derived Quantities",
+    "analogy": "Words are built from alphabets just as derived quantities are built from base quantities."
   },
   {
     "id": 4,
-    "hook": "The Physical\nDNA",
-    "story": "Dimensions reveal the true identity of a physical quantity by showing which fundamental quantities it contains and in what proportion. It doesn't matter if you measure force in Newtons or dynes; its dimensional formula remains exactly the same. We use square brackets to write these formulas, stripping away the numerical magnitudes to look purely at the physical nature.",
-    "formula": "[F] = [M<sup>1</sup>L<sup>1</sup>T<sup>-2</sup>]",
-    "formulaSub": "The dimensional formula for Force (F), derived from mass times acceleration.",
-    "analogy": "It is like the genetic code of a quantity, telling you exactly what fundamental traits it inherited.",
-    "topic": "Units and Dimensions"
+    "hook": "Why Units\nMatter",
+    "story": "A unit is the internationally accepted reference used to measure a physical quantity. Without a common unit, numerical values become meaningless because measurements from different people cannot be compared or reproduced reliably.",
+    "formula": "Measurement = Numerical Value × Unit",
+    "formulaSub": "Every measurement requires both a number and a standard unit.",
+    "topic": "Units",
+    "analogy": "Scoring a game without agreed rules makes every score meaningless."
   },
   {
     "id": 5,
-    "hook": "Apples And\nOranges",
-    "story": "You can only add or subtract things that have the exact same dimensions. You can't add 5 kilograms to 3 seconds, because they represent entirely different physical realities. However, this restriction doesn't apply to multiplication and division, which is how we create new derived quantities.",
-    "formula": "If x = A &plusmn; B, then [x] = [A] = [B]",
-    "formulaSub": "The dimensions of terms added or subtracted must be absolutely identical.",
-    "analogy": "You can multiply apples and baskets to get total apples, but you can only add apples to other apples.",
-    "topic": "Dimensional Analysis"
+    "hook": "One World\nOne System",
+    "story": "The International System of Units, or SI, standardizes measurements worldwide. Scientists, engineers and industries use identical units so experiments, calculations and technologies remain compatible regardless of country or language.",
+    "formula": "SI Base Units: m, kg, s, A, K, mol, cd",
+    "formulaSub": "Metre, kilogram, second, ampere, kelvin, mole and candela.",
+    "topic": "SI Units",
+    "analogy": "Like everyone using the same language during a global competition."
   },
   {
     "id": 6,
-    "hook": "The Ghost\nNumbers",
-    "story": "Some quantities in physics exist purely as ratios or numbers and have no physical dimensions at all. Angles, trigonometric functions, exponents, and logarithms fall into this category. When doing dimensional analysis, these ghost-like quantities simply reduce to 1, as they are completely independent of mass, length, or time.",
-    "formula": "[&theta;] = [M<sup>0</sup>L<sup>0</sup>T<sup>0</sup>] = 1",
-    "formulaSub": "An angle (&theta;) is just the ratio of two lengths (arc and radius), making it purely a number.",
-    "analogy": "They are like percentages\u2014a 50% discount is just a ratio, not a physical object you can hold.",
-    "topic": "Dimensional Analysis"
+    "hook": "Tiny Or Huge?\nUse Prefixes",
+    "story": "Scientific measurements often become extremely large or extremely small. Prefixes scale units by powers of ten, making values easier to read, compare and calculate without changing the actual physical quantity.",
+    "formula": "k = 10³\nM = 10⁶\nm = 10⁻³\nμ = 10⁻⁶\nn = 10⁻⁹",
+    "formulaSub": "Prefixes multiply the base unit by powers of ten.",
+    "topic": "SI Prefixes",
+    "analogy": "Instead of writing one million rupees, people simply say one million."
   },
   {
     "id": 7,
-    "hook": "Translating\nThe Units",
-    "story": "When switching between systems like SI and CGS, the numerical value of a measurement must adapt to keep the physical reality constant. We can use dimensional formulas to find the exact conversion factor between any two systems. By comparing the base units of mass, length, and time in both systems, we can easily translate a quantity into a completely new hypothetical system.",
-    "formula": "n<sub>2</sub> = n<sub>1</sub> [M<sub>1</sub>/M<sub>2</sub>]<sup>a</sup> [L<sub>1</sub>/L<sub>2</sub>]<sup>b</sup> [T<sub>1</sub>/T<sub>2</sub>]<sup>c</sup>",
-    "formulaSub": "Converts a numerical value n1 from one unit system to n2 in another system.",
-    "analogy": "It's like exchanging currencies at the bank; the absolute value of your money stays the same, just the numbers and symbols change.",
-    "topic": "Dimensional Analysis"
+    "hook": "Physics Sees\nOnly Dimensions",
+    "story": "Dimensions reveal the physical nature of a quantity by expressing how it depends on mass, length and time. Unlike units, dimensions remain unchanged across measurement systems, making them powerful tools for checking equations and deriving relationships.",
+    "formula": "[MᵃLᵇTᶜ]",
+    "formulaSub": "M = mass, L = length, T = time, exponents define the quantity.",
+    "topic": "Dimensions",
+    "analogy": "Ingredients define a recipe even if the serving size changes."
   },
   {
     "id": 8,
-    "hook": "Slicing\nThe Circle",
-    "story": "An angle measures the amount of revolution a line makes from its starting position. While we often use degrees in daily life, physics prefers radians, which directly link the angle to the arc length and radius of a circle. One radian is exactly the angle where the arc length equals the radius.",
-    "formula": "&theta; = l / r",
-    "formulaSub": "&theta; is the angle in radians, l is arc length, and r is the radius.",
-    "analogy": "Imagine wrapping the radius of a circle around its edge; the angle that slice makes is exactly one radian.",
-    "topic": "Basic Mathematics"
+    "hook": "The DNA Of\nA Quantity",
+    "story": "A dimensional formula represents a physical quantity using powers of fundamental dimensions. Quantities with identical dimensional formulas share the same physical nature even when their names, units or applications differ.",
+    "formula": "Force = [MLT⁻²]\nEnergy = [ML²T⁻²]\nPressure = [ML⁻¹T⁻²]",
+    "formulaSub": "Each exponent shows dependence on mass, length and time.",
+    "topic": "Dimensional Formula",
+    "analogy": "DNA identifies a species regardless of appearance."
   },
   {
     "id": 9,
-    "hook": "Triangles And\nShadows",
-    "story": "Trigonometric ratios connect the angles of a right-angled triangle to the lengths of its sides. Sine, cosine, and tangent are simply fractions comparing the perpendicular, base, and hypotenuse. These basic ratios form the backbone for resolving vectors and analyzing waves in physics.",
-    "formula": "sin &theta; = Perpendicular / Hypotenuse",
-    "formulaSub": "The sine of an angle gives the ratio of the side opposite the angle to the longest side.",
-    "analogy": "Like a ladder leaning on a wall, trig ratios tell you exactly how high it reaches based on how steep it's placed.",
-    "topic": "Basic Mathematics"
+    "hook": "Why Angles\nHave No Dimension",
+    "story": "An angle measures the ratio of arc length to radius. Since both quantities have dimensions of length, they cancel completely. Therefore angles, trigonometric functions and their values are dimensionless despite describing rotation.",
+    "formula": "θ = s/r\n[θ] = M⁰L⁰T⁰",
+    "formulaSub": "s = arc length, r = radius. Length divided by length becomes dimensionless.",
+    "topic": "Dimensionless Angle",
+    "analogy": "Half a pizza divided by a whole pizza gives only a ratio, not a unit."
   },
   {
     "id": 10,
-    "hook": "The Four\nQuadrants",
-    "story": "As an angle revolves beyond 90 degrees, its trigonometric ratios can become negative depending on which quadrant it lands in. The ASTC rule (All, Sin, Tan, Cos) tells us exactly which functions stay positive in quadrants I, II, III, and IV respectively. This is essential for understanding rotating objects and oscillating waves that cycle through full circles.",
-    "formula": "sin(&pi; - &theta;) = +sin &theta;",
-    "formulaSub": "In the second quadrant, the sine function remains positive.",
-    "analogy": "It's like a compass that tells you which specific mathematical 'seasons' are positive in different parts of the year.",
-    "topic": "Basic Mathematics"
+    "hook": "Why Logs And\nExponents Need Ratios",
+    "story": "Exponential, logarithmic and trigonometric functions accept only dimensionless arguments. A quantity carrying dimensions cannot appear inside log, exponential or sine because these functions operate purely on numerical ratios, not physical units.",
+    "formula": "[eˣ] = 1\n[log x] = 1\n[sin θ] = 1",
+    "formulaSub": "Arguments x and θ must be dimensionless.",
+    "topic": "Dimensionless Functions",
+    "analogy": "A calculator can square the number 5, but not '5 kilograms' without defining a ratio."
   },
   {
-    "id": 11,
-    "hook": "Small Angles\nMade Simple",
-    "story": "When angles are incredibly small, trigonometric functions become a lot easier to handle. Instead of using complex tables or calculators, we can approximate the values directly. This trick saves a ton of time in complex physics derivations!",
-    "formula": "sin &theta; &approx; &theta;, cos &theta; &approx; 1, tan &theta; &approx; &theta;",
-    "formulaSub": "&theta; must be measured in radians.",
-    "analogy": "It's like viewing a gently curved road from up close; it looks practically straight.",
-    "topic": "Basic Mathematics"
+    "id": 41,
+    "hook": "Same Direction\nSame Team",
+    "story": "Parallel vectors point in the same direction regardless of where they are located. Their relative positions do not matter because vectors can be translated parallel to themselves. The angle between parallel vectors is always zero degrees.",
+    "formula": "θ = 0°",
+    "formulaSub": "θ = angle between two parallel vectors.",
+    "topic": "Parallel Vectors",
+    "analogy": "Cars driving on parallel lanes toward the same city."
   },
   {
-    "id": 12,
-    "hook": "Binomial\nApproximation",
-    "story": "Calculating higher powers of quantities close to one can be tedious. The binomial approximation lets us drop negligibly small terms, turning a tricky power into a simple multiplication. It's a lifesaver when dealing with tiny changes in physical quantities.",
-    "formula": "(1 + x)<sup>n</sup> &approx; 1 + nx",
-    "formulaSub": "Valid only when x is very small compared to 1.",
-    "analogy": "If you have a million dollars, finding a penny doesn't change your wealth; you can just ignore it.",
-    "topic": "Basic Mathematics"
+    "id": 42,
+    "hook": "When Two\nBecome Identical",
+    "story": "Equal vectors possess the same magnitude, identical direction and represent the same physical quantity. Their starting positions may differ, yet they remain completely equivalent because vectors depend only on magnitude and direction.",
+    "formula": "A⃗ = B⃗",
+    "formulaSub": "Equal magnitude and same direction.",
+    "topic": "Equal Vectors",
+    "analogy": "Two identical arrows printed on different pages."
   },
   {
-    "id": 13,
-    "hook": "What are\nScalars?",
-    "story": "Some physical quantities are completely described just by their magnitude or size. They don't care about direction at all and follow everyday rules of basic algebra. Think of things like mass, time, and temperature.",
-    "formula": "m<sub>1</sub> + m<sub>2</sub> = M",
-    "formulaSub": "Simple algebraic addition of magnitudes.",
-    "analogy": "It's like counting the total number of apples in a basket; the direction they face doesn't matter.",
-    "topic": "Vectors"
+    "id": 43,
+    "hook": "Same Line\nOpposite Journey",
+    "story": "Antiparallel vectors lie along parallel lines but point in opposite directions. Their angle is always 180 degrees, making them important when calculating minimum resultant vectors.",
+    "formula": "θ = 180°",
+    "formulaSub": "θ = angle between antiparallel vectors.",
+    "topic": "Antiparallel Vectors",
+    "analogy": "Two trains leaving the same station in opposite directions."
   },
   {
-    "id": 14,
-    "hook": "Enter\nthe Vector",
-    "story": "Vectors are special quantities that need both a magnitude and a specific direction to be fully defined. But that's not all\u2014they must also obey special vector algebra rules like the triangle law of addition. Current has direction, but isn't a vector because it breaks these addition rules!",
-    "formula": "A&#8407; + B&#8407; = B&#8407; + A&#8407;",
-    "formulaSub": "Vectors must obey the commutative law of addition.",
-    "analogy": "It's like giving someone a treasure map; you must tell them both how far to walk and in what direction.",
-    "topic": "Vectors"
+    "id": 44,
+    "hook": "Mirror Image\nVector",
+    "story": "Negative or opposite vectors have equal magnitude but exactly opposite direction. Adding a vector to its negative always produces the zero vector because both effects cancel perfectly.",
+    "formula": "−A⃗\nA⃗ + (−A⃗) = 0⃗",
+    "formulaSub": "Negative vector has same magnitude but opposite direction.",
+    "topic": "Negative Vector",
+    "analogy": "Walking 10 m east then 10 m west returns you to the start."
   },
   {
-    "id": 15,
-    "hook": "Angle Between\nVectors",
-    "story": "Finding the angle between two vectors requires them to be arranged properly. You must place them tail-to-tail or head-to-head. The true angle is always the smaller of the two angles formed between them.",
-    "formula": "0 &le; &theta; &le; &pi;",
-    "formulaSub": "&theta; is the smaller angle when tails coincide.",
-    "analogy": "It's like measuring the angle between the two hands of a clock starting from the center pin.",
-    "topic": "Vectors"
+    "id": 45,
+    "hook": "One Origin\nMany Paths",
+    "story": "Co-initial vectors originate from the same point but may point in different directions. This arrangement is especially useful in graphical vector addition and force analysis.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Co-initial Vectors",
+    "analogy": "Several roads starting from the same traffic circle."
   },
   {
-    "id": 16,
-    "hook": "The Null\nVector",
-    "story": "Sometimes forces or velocities cancel each other out completely. When this happens, we get a vector with zero magnitude, known as a null or zero vector. Interestingly, its direction is completely indeterminate!",
-    "formula": "A&#8407; + (-A&#8407;) = 0&#8407;",
-    "formulaSub": "The sum of two equal and opposite vectors.",
-    "analogy": "It's like a perfectly matched tug-of-war where the rope doesn't move at all.",
-    "topic": "Types of Vectors"
+    "id": 46,
+    "hook": "Perfectly\nAligned",
+    "story": "Collinear vectors lie along the same straight line. Depending on their directions, the angle between them is either zero degrees or one hundred eighty degrees, simplifying many vector calculations.",
+    "formula": "θ = 0° or 180°",
+    "formulaSub": "Applicable to vectors on the same straight line.",
+    "topic": "Collinear Vectors",
+    "analogy": "Players standing on the same straight running track."
   },
   {
-    "id": 17,
-    "hook": "The Unit\nVector",
-    "story": "When we only care about pointing in a specific direction without changing the size of a quantity, we use a unit vector. It has a magnitude of exactly one. We find it by dividing a vector by its own magnitude.",
-    "formula": "A&#770; = A&#8407; / |A&#8407;|",
-    "formulaSub": "A cap (A&#770;) denotes a unit vector.",
-    "analogy": "It's like a standard compass needle; it only shows you the way without telling you how far to go.",
-    "topic": "Types of Vectors"
+    "id": 47,
+    "hook": "Living In\nOne Plane",
+    "story": "Coplanar vectors lie in a single plane. Any two vectors are always coplanar, while three or more vectors may or may not be. Most elementary mechanics problems involve coplanar vectors.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Coplanar Vectors",
+    "analogy": "Drawing arrows on one sheet of paper."
   },
   {
-    "id": 18,
-    "hook": "Triangle Law\nof Addition",
-    "story": "When we want to add two vectors together, we can place the tail of the second vector on the head of the first. The resultant vector is drawn from the tail of the first directly to the head of the second. This creates a triangle representing the combined effect.",
-    "formula": "R = &radic;(A<sup>2</sup> + B<sup>2</sup> + 2AB cos&theta;)",
-    "formulaSub": "R is the magnitude of the resultant vector sum.",
-    "analogy": "It's like taking a detour through two streets and then finding a straight shortcut back to the start.",
-    "topic": "Vector Addition"
+    "id": 48,
+    "hook": "Meeting At\nOne Point",
+    "story": "Concurrent vectors are vectors whose lines of action pass through one common point. Many force systems acting on a particle are concurrent, making equilibrium analysis much simpler.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Concurrent Vectors",
+    "analogy": "Several ropes tied to the same ring."
   },
   {
-    "id": 19,
-    "hook": "Parallelogram Law\nof Addition",
-    "story": "If two vectors start from the exact same point, they can form the adjacent sides of a parallelogram. The diagonal passing through that common starting point gives the resultant sum of the vectors. The formula for the magnitude is identical to the triangle law!",
-    "formula": "tan &alpha; = (B sin&theta;) / (A + B cos&theta;)",
-    "formulaSub": "&alpha; gives the direction of the resultant relative to vector A.",
-    "analogy": "It's like two dogs pulling on a single toy from different angles; the toy moves along the diagonal.",
-    "topic": "Vector Addition"
+    "id": 49,
+    "hook": "The Vector\nThat Means Nothing",
+    "story": "A zero or null vector has zero magnitude and therefore no definite direction. It commonly appears as the resultant when equal and opposite vectors cancel one another completely.",
+    "formula": "|0⃗| = 0\nA⃗ + (−A⃗) = 0⃗",
+    "formulaSub": "0⃗ = zero vector.",
+    "topic": "Zero Vector",
+    "analogy": "Taking one step forward and one equal step backward."
   },
   {
-    "id": 20,
-    "hook": "Subtracting\nVectors",
-    "story": "Subtracting one vector from another is really just a clever disguise for addition. You simply reverse the direction of the vector you want to subtract, and then add it to the first. This is incredibly useful for finding changes in velocity or position!",
-    "formula": "|A&#8407; - B&#8407;| = &radic;(A<sup>2</sup> + B<sup>2</sup> - 2AB cos&theta;)",
-    "formulaSub": "Subtracting B is exactly the same as adding -B.",
-    "analogy": "It's like walking backward instead of forward; you are still moving, just in the exact opposite direction.",
-    "topic": "Vector Subtraction"
+    "id": 50,
+    "hook": "Pure Direction\nOnly",
+    "story": "A unit vector has magnitude one and exists solely to specify direction. Any vector can be expressed as the product of its magnitude and its corresponding unit vector, separating size from direction.",
+    "formula": "Â = A⃗/|A⃗|\nA⃗ = AÂ",
+    "formulaSub": "Â = unit vector, A = magnitude of A⃗.",
+    "topic": "Unit Vector",
+    "analogy": "A compass needle tells direction without telling distance."
   },
   {
-    "id": 21,
-    "hook": "Resolving into\nComponents",
-    "story": "Any vector can be broken down into pieces called components, usually along the X and Y axes. These components act together to produce the exact same effect as the original vector. It turns complex angled vector math into simple straight-line arithmetic.",
-    "formula": "A<sub>x</sub> = A cos&alpha;, A<sub>y</sub> = A sin&alpha;",
-    "formulaSub": "Components of a vector making angle &alpha; with the X-axis.",
-    "analogy": "It's like moving diagonally across a chessboard by taking one step forward and one step sideways.",
-    "topic": "Resolution of Vectors"
+    "id": 51,
+    "hook": "Three Arrows\nThat Build Space",
+    "story": "Three mutually perpendicular unit vectors along the x, y and z axes form the Cartesian basis. Any vector in three-dimensional space can be uniquely resolved into components along these directions, making vector calculations purely algebraic.",
+    "formula": "î, ĵ, k̂\nA⃗ = Aₓî + Aᵧĵ + Azk̂",
+    "formulaSub": "î, ĵ, k̂ = unit vectors along x, y and z axes. Aₓ, Aᵧ, Az = components.",
+    "topic": "Basis Vectors",
+    "analogy": "Every location in a city can be reached using only east-west, north-south and up-down movements."
   },
   {
-    "id": 22,
-    "hook": "Direction\nCosines",
-    "story": "In 3D space, a vector makes distinct angles with the X, Y, and Z axes. The cosines of these three angles are called direction cosines. They beautifully link the individual components to the vector's total magnitude.",
-    "formula": "cos<sup>2</sup>&alpha; + cos<sup>2</sup>&beta; + cos<sup>2</sup>&gamma; = 1",
-    "formulaSub": "The sum of the squares of direction cosines is always 1.",
-    "analogy": "It's like assigning a percentage of the total journey to the North, East, and Up directions.",
-    "topic": "Resolution of Vectors"
+    "id": 52,
+    "hook": "Stretch Without\nTurning",
+    "story": "Multiplying a vector by a positive scalar changes only its magnitude while preserving its direction. The scalar acts like a scale factor, enlarging or shrinking the vector without rotating it.",
+    "formula": "B⃗ = λA⃗\n|B⃗| = λ|A⃗|, λ greater than 0",
+    "formulaSub": "λ = positive scalar multiplier.",
+    "topic": "Positive Scalar",
+    "analogy": "Zooming a photo makes it larger without changing its orientation."
   },
   {
-    "id": 23,
-    "hook": "Position\nVector",
-    "story": "To track where an object is, we draw a vector from the origin of our coordinate system straight to the object's location. This is its position vector. It instantly translates geometric coordinates into a mathematical vector format we can calculate with.",
-    "formula": "r&#8407; = x i&#770; + y j&#770; + z k&#770;",
-    "formulaSub": "x, y, and z are the coordinates of the point.",
-    "analogy": "It's like drawing a straight laser beam from your eye to a star in the night sky.",
-    "topic": "Position and Displacement"
+    "id": 53,
+    "hook": "Flip The\nDirection",
+    "story": "Multiplying a vector by a negative scalar reverses its direction while scaling its magnitude. The new vector points exactly opposite to the original and its length becomes the absolute value of the scalar times the original magnitude.",
+    "formula": "B⃗ = λA⃗\n|B⃗| = |λ||A⃗|, λ less than 0",
+    "formulaSub": "Negative λ reverses direction.",
+    "topic": "Negative Scalar",
+    "analogy": "Driving in reverse at twice the speed."
   },
   {
-    "id": 24,
-    "hook": "Displacement\nVector",
-    "story": "When an object moves from one point to another, the change in its position is completely captured by the displacement vector. It only cares about where the object started and where it ended up, completely ignoring the path taken.",
-    "formula": "s&#8407; = r&#8407;<sub>f</sub> - r&#8407;<sub>i</sub> = (x<sub>2</sub>-x<sub>1</sub>)i&#770; + (y<sub>2</sub>-y<sub>1</sub>)j&#770; + (z<sub>2</sub>-z<sub>1</sub>)k&#770;",
-    "formulaSub": "Represents the shortest straight line between start and end points.",
-    "analogy": "It's how the crow flies from your house to the store, regardless of the winding roads.",
-    "topic": "Position and Displacement"
+    "id": 54,
+    "hook": "Why Vector\nAddition Is Different",
+    "story": "Unlike ordinary numbers, vectors combine according to both magnitude and direction. Changing either quantity changes the final result, so vector addition follows geometric rules instead of simple arithmetic.",
+    "formula": "R⃗ = A⃗ + B⃗",
+    "formulaSub": "R⃗ = resultant vector.",
+    "topic": "Vector Addition",
+    "analogy": "Walking 5 m north then 5 m east is not the same as walking 10 m straight."
   },
   {
-    "id": 25,
-    "hook": "The Scalar\nProduct",
-    "story": "The scalar product, or dot product, multiplies two vectors together to give a simple scalar number. It measures how much one vector aligns with another. If the vectors are perfectly perpendicular, their dot product is an absolute zero!",
-    "formula": "A&#8407; &middot; B&#8407; = AB cos&theta;",
-    "formulaSub": "Yields a scalar value based on the alignment of vectors.",
-    "analogy": "It's like measuring how much of your push is actually helping a car move forward, ignoring any sideways effort.",
-    "topic": "Vector Multiplication"
+    "id": 55,
+    "hook": "Head Meets\nTail",
+    "story": "The triangle law states that if two vectors are represented by two sides of a triangle taken in order, their resultant is represented by the third side taken in the opposite order. It provides the graphical method for adding two vectors.",
+    "formula": "R⃗ = A⃗ + B⃗",
+    "formulaSub": "R⃗ is drawn from the tail of A⃗ to the head of B⃗.",
+    "topic": "Triangle Law",
+    "analogy": "Following two connected streets reaches the same destination as one direct shortcut."
   },
   {
-    "id": 26,
-    "hook": "The Vector\nProduct",
-    "story": "The vector product, or cross product, multiplies two vectors to create an entirely new vector. This new vector is perfectly perpendicular to the plane containing the original two. We use the right-hand thumb rule to figure out which way this new vector points.",
-    "formula": "A&#8407; &times; B&#8407; = AB sin&theta; n&#770;",
-    "formulaSub": "The result is a vector perpendicular to both A and B.",
-    "analogy": "It's like turning a screw; applying a force in a circle makes the screw move straight down or up!",
-    "topic": "Vector Multiplication"
+    "id": 56,
+    "hook": "The Shortcut\nVector",
+    "story": "The resultant vector represents the single vector that produces the same overall effect as all vectors acting together. It replaces multiple vectors with one equivalent vector in both magnitude and direction.",
+    "formula": "R⃗ = A⃗ + B⃗",
+    "formulaSub": "R⃗ = resultant or vector sum.",
+    "topic": "Resultant Vector",
+    "analogy": "Multiple pushes combine into one overall push."
   },
   {
-    "id": 27,
-    "hook": "Right-Hand\nThumb Rule",
-    "story": "When finding the direction of a cross product, your hand comes to the rescue. Curl the fingers of your right hand from the first vector toward the second. Your extended thumb will magically point exactly in the direction of the resulting vector!",
-    "formula": "n&#770; = (A&#8407; &times; B&#8407;) / |A&#8407; &times; B&#8407;|",
-    "formulaSub": "n&#770; is the unit vector given by the right-hand rule.",
-    "analogy": "It's just like the rule for tightening a jar lid\u2014turn it right, and it pushes down.",
-    "topic": "Vector Multiplication"
+    "id": 57,
+    "hook": "How Long Is\nThe Resultant?",
+    "story": "The magnitude of the resultant depends on both the magnitudes of the vectors and the angle between them. This relationship follows directly from the cosine rule applied to the triangle formed during vector addition.",
+    "formula": "R = √(A² + B² + 2ABcosθ)",
+    "formulaSub": "A and B = magnitudes, θ = angle between vectors, R = resultant magnitude.",
+    "topic": "Resultant Magnitude",
+    "analogy": "The diagonal of a shape depends on both side lengths and the angle."
+  },
+  {
+    "id": 58,
+    "hook": "Which Way\nWill It Point?",
+    "story": "The direction of the resultant is determined by the relative strengths of the two vectors and the angle between them. A stronger vector pulls the resultant closer to its own direction.",
+    "formula": "tanα = (Bsinθ)/(A + Bcosθ)",
+    "formulaSub": "α = angle of resultant with A⃗.",
+    "topic": "Resultant Direction",
+    "analogy": "A tug-of-war rope leans toward the stronger team."
+  },
+  {
+    "id": 59,
+    "hook": "A Rectangle\nHides A Rule",
+    "story": "The parallelogram law states that if two vectors are represented by adjacent sides of a parallelogram, their resultant is represented by the diagonal passing through the common point. It is mathematically identical to the triangle law.",
+    "formula": "R⃗ = A⃗ + B⃗",
+    "formulaSub": "Resultant is the diagonal of the parallelogram.",
+    "topic": "Parallelogram Law",
+    "analogy": "Walking along two adjacent sides of a park equals walking directly across the diagonal."
+  },
+  {
+    "id": 60,
+    "hook": "Two Laws\nOne Answer",
+    "story": "The triangle law and parallelogram law are different geometric constructions of the same vector addition principle. Both always produce the identical resultant because vector addition depends only on the vectors themselves, not on the construction method.",
+    "formula": "Triangle Law ⇔ Parallelogram Law\nR⃗ = A⃗ + B⃗",
+    "formulaSub": "Both graphical methods produce the same resultant.",
+    "topic": "Addition Methods",
+    "analogy": "Two different GPS routes reaching the same destination."
   }
 ]
 };
