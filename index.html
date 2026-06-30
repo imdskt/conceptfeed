@@ -1147,6 +1147,14 @@ const DB = {
 ]
 };
 
+
+document.getElementById('storyFab').addEventListener('click', function() {
+  document.getElementById('revisionOverlay').classList.add('visible');
+});
+document.querySelector('.revision-close').addEventListener('click', function() {
+  document.getElementById('revisionOverlay').classList.remove('visible');
+});
+
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
