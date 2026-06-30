@@ -1402,6 +1402,34 @@ html, body {
 .lock-btn { width: 100%; background: var(--gradient); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 25px var(--accent-glow); }
 .lock-btn:active { transform: scale(0.98); }
 .lock-error { color: var(--orange); font-size: 0.8rem; margin-top: var(--space-3); display: none; }
+
+/* ================= Nav Overlay ================= */
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.3s ease; opacity: 0; pointer-events: none;
+}
+.nav-overlay.visible { opacity: 1; pointer-events: all; }
+.nav-overlay-close {
+  position: absolute; top: 30px; right: 30px;
+  background: rgba(255,255,255,0.1); border: none; border-radius: 50%;
+  width: 40px; height: 40px; color: #fff; font-size: 1.5rem; cursor: pointer;
+}
+.nav-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 30px; color: #fff; }
+.nav-list { display: flex; flex-direction: column; gap: 15px; width: 80%; max-width: 300px; }
+.nav-btn {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 20px; color: #fff; text-align: left;
+  display: flex; flex-direction: column; cursor: pointer; transition: 0.2s;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.1); transform: scale(1.02); }
+.nav-btn-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+.nav-btn-sub { font-size: 0.8rem; opacity: 0.6; }
+.header-info { cursor: pointer; padding: 5px; border-radius: 8px; transition: background 0.2s; }
+.header-info:hover { background: rgba(255,255,255,0.1); }
+
 </style>
 </head>
 <body>
@@ -1424,7 +1452,7 @@ html, body {
 <!-- ═══════ HEADER ═══════ -->
 <div class="header">
   <div>
-    <div class="header-title">ConceptFeed</div>
+    <div class="header-title" id="navTrigger" style="cursor:pointer; display:inline-flex; align-items:center; gap:5px">ConceptFeed <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
     <div class="header-chapter">Electrostatics · Ch 01</div>
   </div>
   <div class="header-right">
@@ -1472,6 +1500,21 @@ html, body {
     <button class="mood-btn" data-mood="calm"><span class="emoji">😌</span><span class="label">Calm</span></button>
     <button class="mood-btn" data-mood="exam"><span class="emoji">🔥</span><span class="label">Exam</span></button>
     <button class="mood-btn" data-mood="quick"><span class="emoji">🎯</span><span class="label">Quick</span></button>
+  </div>
+</div>
+
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" id="navClose">×</button>
+  <div class="nav-title">Jump to Chapter</div>
+  <div class="nav-list">
+    <button class="nav-btn" onclick="jumpToChapter(0)">
+      <div class="nav-btn-title">⚡ Electrostatics</div>
+      <div class="nav-btn-sub">Cards 1 - 46</div>
+    </button>
+    <button class="nav-btn" onclick="jumpToChapter(46)">
+      <div class="nav-btn-title">📏 Units & Dimensions</div>
+      <div class="nav-btn-sub">Cards 47 - 126</div>
+    </button>
   </div>
 </div>
 
@@ -1989,6 +2032,25 @@ if (localStorage.getItem('cf_unlocked') === 'true') {
 
 lockUnlockBtn.addEventListener('click', checkUnlock);
 lockInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') checkUnlock(); });
+
+// --- Quick Nav Logic ---
+const navOverlay = document.getElementById('navOverlay');
+const navTrigger = document.getElementById('navTrigger');
+const navClose = document.getElementById('navClose');
+
+if (navTrigger) navTrigger.addEventListener('click', () => navOverlay.classList.add('visible'));
+if (navClose) navClose.addEventListener('click', () => navOverlay.classList.remove('visible'));
+
+window.jumpToChapter = function(startIndex) {
+  navOverlay.classList.remove('visible');
+  const targetCard = document.getElementById('card-' + startIndex);
+  if (targetCard) {
+    feed.style.scrollBehavior = 'auto';
+    targetCard.scrollIntoView();
+    setTimeout(() => { feed.style.scrollBehavior = ''; }, 50);
+  }
+};
+
 </script>
 </body>
 </html>
