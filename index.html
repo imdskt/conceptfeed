@@ -1485,7 +1485,7 @@ const lockUnlockBtn = document.getElementById('lockUnlockBtn');
 const lockError = document.getElementById('lockError');
 
 async function checkUnlock() {
-  const inputVal = lockInput.value;
+  const inputVal = lockInput.value.trim().toLowerCase();
   const hash = await sha256(inputVal);
   if (hash === targetHash) {
     localStorage.setItem('cf_unlocked', 'true');
