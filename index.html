@@ -1674,13 +1674,33 @@ buildCards();
 /* ============================================================
    INTERSECTION OBSERVER & PERSISTENCE
    ============================================================ */
+let progressSegmentsCache = null;
+let lastUpdateIndex = -1;
+
 function updateProgress(index) {
-  document.querySelectorAll('.progress-segment').forEach((seg, i) => {
-    seg.classList.remove('active', 'visited');
-    if (i < index) seg.classList.add('visited');
-    if (i === index) seg.classList.add('active');
-  });
+  if (lastUpdateIndex === index) return;
+  lastUpdateIndex = index;
+  
+  if (!progressSegmentsCache) {
+    progressSegmentsCache = Array.from(document.querySelectorAll('.progress-segment'));
+  }
+  
+  for(let i = 0; i < progressSegmentsCache.length; i++) {
+    const seg = progressSegmentsCache[i];
+    if (i < index) {
+      if(!seg.classList.contains('visited')) seg.classList.add('visited');
+      if(seg.classList.contains('active')) seg.classList.remove('active');
+    } else if (i === index) {
+      if(!seg.classList.contains('active')) seg.classList.add('active');
+      if(seg.classList.contains('visited')) seg.classList.remove('visited');
+    } else {
+      if(seg.classList.contains('active')) seg.classList.remove('active');
+      if(seg.classList.contains('visited')) seg.classList.remove('visited');
+    }
+  }
 }
+
+let scrollSaveTimeout = null;
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1688,22 +1708,29 @@ const observer = new IntersectionObserver((entries) => {
       const card = entry.target;
       const idx = parseInt(card.dataset.index);
       
-      document.querySelectorAll('.card.is-active').forEach(c => c.classList.remove('is-active'));
+      // Instead of querying all cards, we just add the active class. 
+      // The old active card will naturally lose it when it intersects false.
       card.classList.add('is-active');
-      currentIndex = idx;
-      updateProgress(idx);
-      const chapElem = document.querySelector('.header-chapter');
-      if (chapElem && concepts[idx] && concepts[idx].chapterTitle) {
-        chapElem.textContent = concepts[idx].chapterTitle;
-      }
       
-      // Save state
-      localStorage.setItem('cf_current_index', idx);
+      if (currentIndex !== idx) {
+        currentIndex = idx;
+        window.requestAnimationFrame(() => updateProgress(idx));
+        
+        const chapElem = document.querySelector('.header-chapter');
+        if (chapElem && concepts[idx] && concepts[idx].chapterTitle && chapElem.textContent !== concepts[idx].chapterTitle) {
+          chapElem.textContent = concepts[idx].chapterTitle;
+        }
+        
+        clearTimeout(scrollSaveTimeout);
+        scrollSaveTimeout = setTimeout(() => {
+          localStorage.setItem('cf_current_index', idx);
+        }, 150);
 
-      // Light haptic feedback on scroll
-      if(navigator.vibrate && idx !== currentIndex) navigator.vibrate(10);
-
-      if (idx > 0) document.getElementById('swipeHint').classList.add('hidden');
+        if(navigator.vibrate) navigator.vibrate(5);
+        if (idx > 0) document.getElementById('swipeHint').classList.add('hidden');
+      }
+    } else {
+      entry.target.classList.remove('is-active');
     }
   });
 }, { root: feed, threshold: [0.55] });
