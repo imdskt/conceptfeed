@@ -1152,6 +1152,10 @@ const DB = {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
+
+function openRevision() { document.getElementById('revisionOverlay').classList.add('visible'); }
+function closeRevision() { document.getElementById('revisionOverlay').classList.remove('visible'); }
+
 /* ============================================================
    0. RESET & FOUNDATIONS
    ============================================================ */
@@ -1430,7 +1434,40 @@ html, body {
 .header-info { cursor: pointer; padding: 5px; border-radius: 8px; transition: background 0.2s; }
 .header-info:hover { background: rgba(255,255,255,0.1); }
 
+
+.revision-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  z-index: 10000; opacity: 0; visibility: hidden; transition: 0.3s ease;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.revision-overlay.visible { opacity: 1; visibility: visible; }
+.revision-modal {
+  position: relative; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px; width: 100%; max-width: 500px; max-height: 85dvh;
+  display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  transform: translateY(20px) scale(0.95); transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.revision-overlay.visible .revision-modal { transform: translateY(0) scale(1); }
+.revision-close {
+  position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1);
+  border: none; border-radius: 50%; width: 36px; height: 36px; color: #fff;
+  font-size: 1.4rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.revision-close:hover { background: rgba(255,255,255,0.2); }
+.revision-title {
+  padding: 24px 20px; font-size: 1.6rem; font-weight: 900; font-family: var(--font-display);
+  background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;
+}
+.revision-content {
+  padding: 24px; overflow-y: auto; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.revision-content p { margin-bottom: 20px; }
+.revision-content p:first-child::first-letter { font-size: 3.5rem; float: left; margin-right: 12px; margin-top: 4px; color: var(--accent); line-height: 0.8; font-family: var(--font-display); font-weight: 900; text-shadow: 0 0 20px var(--accent-glow);}
 </style>
+
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="manifest.json">
@@ -1462,6 +1499,10 @@ html, body {
     <div class="pill streak-pill" id="streakPill" title="Daily Streak">
       <span class="emoji">🔥</span>
       <span id="streakCount">0</span>
+    </div>
+    <div class="pill revision-pill" onclick="openRevision()" title="Quick Revision">
+      <span class="emoji">📖</span>
+      <span>Story</span>
     </div>
     <div class="pill mood-pill" id="moodPill" title="Change mood">
       <span class="emoji" id="moodPillEmoji">⚡</span>
@@ -1555,6 +1596,35 @@ html, body {
 <style>
 .nav-accordion .hidden { display: none !important; }
 </style>
+
+<!-- Quick Revision Modal -->
+<div class="revision-overlay" id="revisionOverlay">
+  <div class="revision-modal">
+    <button class="revision-close" onclick="closeRevision()">×</button>
+    <div class="revision-title">The Story of Electrostatics</div>
+    <div class="revision-content">
+      <p>Imagine you're living in a universe where objects can pull each other without touching. Long before you ever learn formulas, you would notice tiny clues everywhere: a comb attracting bits of paper, lightning tearing through the sky, clothes sticking together after drying. At first these events seem unrelated. But nature is quietly revealing that matter possesses another hidden property besides mass—a property called electric charge.</p>
+<p>Charge is not something added to the universe later. It is woven into the particles themselves. Electrons naturally carry negative charge, protons carry positive charge, and because most objects contain equal numbers of both, they usually appear electrically neutral. The moment this balance is disturbed, the object begins interacting with the invisible electric world around it.</p>
+<p>Unlike mass, which only attracts, charge comes in two opposite personalities. Similar charges dislike sharing the same space and push each other away. Opposite charges seek each other and pull together. This single rule explains everything from atoms staying together to lightning bolts stretching across kilometers of sky.</p>
+<p>The universe also follows strict accounting. Charge can never be created from nothing or disappear into nothing. If one object gains electrons, another must lose exactly the same number. Nature is constantly moving charge around, never inventing or destroying it. This is why rubbing two objects charges both of them equally but with opposite signs.</p>
+<p>Even more fascinating, charge is not continuous like water flowing from a tap. It comes only in tiny indivisible packets equal to the charge of one electron. You can own one electron, ten electrons, or a trillion electrons—but never half an electron's worth of charge. The universe counts charge one particle at a time.</p>
+<p>When you rub a glass rod with silk, nothing magical happens. No new charge is born. The silk simply has a stronger attraction for electrons than glass. Electrons migrate from the glass into the silk. The glass is left with fewer electrons than protons, making it positively charged, while the silk gains extra electrons and becomes negatively charged. Every charging process is really just the movement of electrons.</p>
+<p>Different materials grip electrons with different strengths. This is why a balloon rubbed on hair sticks to a wall while two pieces of metal may barely charge at all. The triboelectric series is simply nature's ranking of how tightly different materials hold onto electrons.</p>
+<p>Some materials let electrons wander almost freely. These are conductors, such as copper and aluminum. Others imprison their electrons so tightly that almost no movement is possible. These are insulators like rubber, plastic, and wood. Semiconductors lie delicately between these extremes, allowing only limited movement. Modern electronics exists because of this middle ground.</p>
+<p>If a charged conductor touches an uncharged conductor, electrons immediately begin redistributing themselves. They continue moving until both objects reach the same electrical "comfort level," called equal electric potential. Charge always flows from imbalance toward balance, just as water flows downhill.</p>
+<p>But the universe has an even subtler trick. A charged object does not need to touch another object to rearrange its electrons. Simply bringing a positive charge close to a conductor pulls nearby electrons toward it and leaves positive charge on the far side. This separation is called induction. Nothing has been transferred yet—only rearranged.</p>
+<p>Using induction carefully, we can permanently charge an object without ever touching it. By grounding or by temporarily connecting conductors, electrons are guided to move exactly where we want. The nearby charged object merely acts like a commander giving instructions from a distance.</p>
+<p>This explains a surprising everyday fact: a charged object always attracts a neutral conductor. The side closer to the charged object becomes oppositely charged through induction, while the like charges are pushed farther away. Since electric force weakens rapidly with distance, the nearby attraction is stronger than the distant repulsion. Attraction can happen even if one object is neutral.</p>
+<p>Repulsion, however, tells a deeper truth. Two objects can repel only if both are already charged with the same sign. This is why physicists say repulsion is the sure test of electrification.</p>
+<p>Then came one of physics' greatest discoveries: the strength of electric force follows an astonishingly simple law. Double either charge, and the force doubles. Double both charges, and it becomes four times stronger. But double the distance, and the force becomes four times weaker. Triple the distance, and it becomes nine times weaker. Distance dominates electric interactions because the influence spreads over an ever-growing sphere surrounding the charge.</p>
+<p>This is Coulomb's Law—the gravitational law's electrical cousin. Yet unlike gravity, which only attracts, electrical force can both attract and repel. That single difference creates the incredible richness of chemistry, electricity, biology, and modern technology.</p>
+<p>Every charge quietly fills surrounding space with an invisible influence called an electric field. Instead of thinking that one charge somehow reaches out and grabs another instantly, imagine that each charge permanently reshapes the space around it. Any other charge entering that region simply responds to the local conditions. The field belongs to space itself.</p>
+<p>When several charges exist together, nature remains beautifully simple. Each charge creates its own field independently, and the total effect is just the vector sum of all of them. No charge asks permission from the others. The universe simply layers every influence together. This elegant idea, the principle of superposition, lets physicists predict incredibly complex electrical systems using one simple rule repeated over and over.</p>
+<p>By the time you reach electric fields, electrostatics no longer feels like a collection of formulas. It becomes the story of invisible landscapes shaped by charge—landscapes that guide every electron, hold atoms together, power every circuit, and even allow light itself to exist as traveling electromagnetic fields.</p>
+    </div>
+  </div>
+</div>
+
 
 <script>
 /* ============================================================
