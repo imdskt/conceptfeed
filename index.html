@@ -1167,6 +1167,10 @@ const observer = new IntersectionObserver((entries) => {
       card.classList.add('is-active');
       currentIndex = idx;
       updateProgress(idx);
+      const chapElem = document.querySelector('.header-chapter');
+      if (chapElem && concepts[idx] && concepts[idx].chapterTitle) {
+        chapElem.textContent = concepts[idx].chapterTitle;
+      }
       
       // Save state
       localStorage.setItem('cf_current_index', idx);
