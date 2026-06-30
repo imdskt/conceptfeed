@@ -2043,12 +2043,12 @@ if (navClose) navClose.addEventListener('click', () => navOverlay.classList.remo
 
 window.jumpToChapter = function(startIndex) {
   navOverlay.classList.remove('visible');
-  const targetCard = document.getElementById('card-' + startIndex);
-  if (targetCard) {
-    feed.style.scrollBehavior = 'auto';
-    targetCard.scrollIntoView();
-    setTimeout(() => { feed.style.scrollBehavior = ''; }, 50);
-  }
+  setTimeout(() => {
+    const targetCard = document.getElementById('card-' + startIndex);
+    if (targetCard) {
+      targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
 };
 
 </script>
