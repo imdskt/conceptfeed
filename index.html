@@ -1368,6 +1368,11 @@ html, body {
 .mood-btn .emoji { font-size: 2rem; }
 .mood-btn .label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); }
 
+
+.story-fab { position: fixed; bottom: calc(var(--safe-bottom) + var(--space-6) + 60px); right: var(--space-4); z-index: 180; width: 48px; height: 48px; border-radius: 50%; background: var(--bg-surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5); transition: all 0.3s ease; }
+.story-fab:hover { transform: scale(1.1); border-color: var(--accent-glow); background: var(--accent-dim); box-shadow: 0 6px 30px var(--accent-glow); }
+@media (min-width: 600px) { .story-fab { right: calc(50% - 215px + var(--space-4)); } }
+
 /* Doubt FAB */
 .doubt-fab { position: fixed; bottom: calc(var(--safe-bottom) + var(--space-6)); right: var(--space-4); z-index: 180; width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); border: none; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px var(--accent-glow); transition: all 0.3s ease; font-family: var(--font-display); }
 .doubt-fab:hover { transform: scale(1.1); box-shadow: 0 6px 30px var(--accent-glow); }
@@ -1517,6 +1522,7 @@ html, body {
 </div>
 <div class="edge-flash" id="edgeFlash"></div>
 <button class="doubt-fab" id="doubtFab" aria-label="Ask a doubt">?</button>
+<button class="story-fab" id="storyFab" aria-label="Read Story" onclick="openRevision()">📖</button>
 
 <!-- ═══════ DOUBT BOTTOM SHEET ═══════ -->
 <div class="doubt-overlay" id="doubtOverlay"></div>
@@ -1564,10 +1570,7 @@ html, body {
           <div class="nav-btn-title" style="font-size: 0.95rem;">⚡ Electrostatics</div>
           <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 1 - 46</div>
         </button>
-        <button class="nav-btn" onclick="openRevision(); document.getElementById('navOverlay').classList.remove('visible');" style="padding: 10px 15px; background: var(--accent-dim); border: 1px solid var(--accent-glow); display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 1.2rem;">📖</span>
-          <div class="nav-btn-title" style="font-size: 0.9rem; color: var(--accent-bright); margin: 0;">Electrostatics Quick Revision</div>
-        </button>
+        
         <button class="nav-btn" onclick="jumpToChapter(46)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">📏 Units & Dimensions</div>
           <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 47 - 126</div>
