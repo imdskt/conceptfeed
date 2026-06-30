@@ -1153,9 +1153,6 @@ const DB = {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 
-function openRevision() { document.getElementById('revisionOverlay').classList.add('visible'); }
-function closeRevision() { document.getElementById('revisionOverlay').classList.remove('visible'); }
-
 /* ============================================================
    0. RESET & FOUNDATIONS
    ============================================================ */
@@ -1783,6 +1780,10 @@ buildCards();
 /* ============================================================
    INTERSECTION OBSERVER & PERSISTENCE
    ============================================================ */
+
+function openRevision() { document.getElementById('revisionOverlay').classList.add('visible'); }
+function closeRevision() { document.getElementById('revisionOverlay').classList.remove('visible'); }
+
 let progressSegmentsCache = null;
 let lastUpdateIndex = -1;
 
