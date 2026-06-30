@@ -1500,10 +1500,7 @@ html, body {
       <span class="emoji">🔥</span>
       <span id="streakCount">0</span>
     </div>
-    <div class="pill revision-pill" onclick="openRevision()" title="Quick Revision">
-      <span class="emoji">📖</span>
-      <span>Story</span>
-    </div>
+    
     <div class="pill mood-pill" id="moodPill" title="Change mood">
       <span class="emoji" id="moodPillEmoji">⚡</span>
       <span id="moodPillLabel">Default</span>
@@ -1566,6 +1563,10 @@ html, body {
         <button class="nav-btn" onclick="jumpToChapter(0)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">⚡ Electrostatics</div>
           <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 1 - 46</div>
+        </button>
+        <button class="nav-btn" onclick="openRevision(); document.getElementById('navOverlay').classList.remove('visible');" style="padding: 10px 15px; background: var(--accent-dim); border: 1px solid var(--accent-glow); display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.2rem;">📖</span>
+          <div class="nav-btn-title" style="font-size: 0.9rem; color: var(--accent-bright); margin: 0;">Electrostatics Quick Revision</div>
         </button>
         <button class="nav-btn" onclick="jumpToChapter(46)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">📏 Units & Dimensions</div>
