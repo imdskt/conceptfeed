@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>ConceptFeed — JEE Electrostatics</title>
+<meta name="description" content="Swipe through bite-sized JEE Physics concepts like Reels. Electrostatics chapter.">
+<script>
+const DB = {
+  "electrostatics": [
+  {
+    "id": 1,
+    "hook": "The Spark\nOf Life",
+    "story": "Charge is the fundamental property of matter that causes it to experience electrical and magnetic effects. It comes in two types: positive and negative, where like charges repel and opposite charges attract. Total charge in an isolated system is always conserved, and charge is always quantized in discrete multiples of the elementary charge of an electron.",
+    "formula": "Q = &plusmn;ne",
+    "formulaSub": "Q is total charge, n is an integer, and e is the fundamental charge of an electron (1.6 &times; 10<sup>-19</sup> C).",
+    "analogy": "Think of charge like currency; you can't hand someone half a penny, it only exists in fixed, whole amounts.",
+    "topic": "Electric Charge"
+  },
+  {
+    "id": 2,
+    "hook": "The Invisible\nPull",
+    "story": "Coulomb's Law describes the invisible force between two stationary, electrically charged particles. This electrostatic force grows stronger when the charges are larger, but it weakens dramatically as they move further apart. It acts along the straight line connecting the two charges, pulling them together or pushing them away.",
+    "formula": "F = kq<sub>1</sub>q<sub>2</sub>/r<sup>2</sup>",
+    "formulaSub": "F is the electrostatic force, q<sub>1</sub> and q<sub>2</sub> are the point charges, r is the distance between them, and k is Coulomb's constant.",
+    "analogy": "It's like the gravitational pull between two planets, but it can push them apart just as easily as it pulls them together.",
+    "topic": "Coulomb's Law"
+  },
+  {
+    "id": 3,
+    "hook": "The Many\nBecome One",
+    "story": "When multiple charges are interacting in space, figuring out the total force on a single charge is surprisingly straightforward. The electrostatic force is an independent two-body interaction, meaning the presence of other charges doesn't change the force between any specific pair. You simply calculate the individual force from every other charge one by one, and add them all together as vectors to find the grand total.",
+    "formula": "F<sub>net</sub> = F<sub>1</sub> + F<sub>2</sub> + F<sub>3</sub> + ...",
+    "formulaSub": "F<sub>net</sub> is the total resultant vector force, and F<sub>n</sub> are the individual vector forces from each surrounding charge.",
+    "analogy": "Imagine being in a tug-of-war where multiple people are pulling you with different ropes; your final movement is the combined result of all their individual pulls.",
+    "topic": "Principle of Superposition"
+  },
+  {
+    "id": 4,
+    "hook": "Balancing\nThe Forces",
+    "story": "An electrical charge is in electrostatic equilibrium when all the push and pull forces acting on it perfectly balance out to zero. If you nudge the charge slightly and it snaps back to its original spot, the equilibrium is stable. But if nudging it causes it to fly away forever, the equilibrium is considered unstable.",
+    "formula": "F<sub>net</sub> = 0",
+    "formulaSub": "F<sub>net</sub> is the net vector sum of all electrostatic forces acting on the point charge.",
+    "analogy": "It's like a marble resting in the bottom of a bowl; push it slightly and it rolls back (stable), but balance it on top of a dome and any nudge makes it fall away (unstable).",
+    "topic": "Electrostatic Equilibrium"
+  },
+  {
+    "id": 5,
+    "hook": "An Invisible\nWeb",
+    "story": "An electric field is an invisible aura or region in space created by a charged particle. If any other charge wanders into this region, it instantly feels an electrostatic push or pull. The intensity of this field at any point is simply the exact amount of force a tiny unit of positive test charge would feel if placed right there.",
+    "formula": "E = F/q<sub>0</sub>",
+    "formulaSub": "E is the electric field intensity vector, F is the force vector experienced, and q<sub>0</sub> is the small positive test charge.",
+    "analogy": "Think of it as the scent of a perfume in a room; the closer you get to the source, the stronger the smell you experience.",
+    "topic": "Electric Field"
+  },
+  {
+    "id": 6,
+    "hook": "The Infinite\nLine",
+    "story": "When an infinite, straight wire is uniformly coated with an electrical charge, it creates a unique electric field around itself. Instead of fading away based on the square of the distance like a single point charge, its field weakens much more slowly. The electric field points radially outward and its strength is inversely proportional to just the direct distance from the wire.",
+    "formula": "E = 2k&lambda;/r",
+    "formulaSub": "E is the electric field, k is Coulomb's constant, &lambda; is the linear charge density, and r is the perpendicular distance to the wire.",
+    "analogy": "Imagine an infinitely long, glowing fluorescent tube; the light dims evenly as you step away from the long glowing line.",
+    "topic": "Continuous Charge Distribution"
+  },
+  {
+    "id": 7,
+    "hook": "The Perfect\nCircle",
+    "story": "A uniformly charged circular ring creates a fascinating electric field along its central axis. Right exactly at the center of the ring, the pull from all sides perfectly cancels out, resulting in zero net field. However, as you move away along the central axis, the field strength grows to a peak before eventually fading out at large distances.",
+    "formula": "E = kQx / (R<sup>2</sup> + x<sup>2</sup>)<sup>3/2</sup>",
+    "formulaSub": "E is the electric field on the axis, Q is the total charge of the ring, R is its radius, and x is the distance from the center.",
+    "analogy": "It's like standing in the exact center of a perfectly circular stadium of screaming fans; the noise surrounds you equally, but if you walk down the exit tunnel, the sound changes directionally.",
+    "topic": "Continuous Charge Distribution"
+  },
+  {
+    "id": 8,
+    "hook": "The Charged\nDisc",
+    "story": "A flat disc filled with uniform charge produces an electric field that changes predictably based on distance. When you're extremely close to the disc, it behaves just like an endless, infinite sheet, with a constant strong force. But as you step far away, its edges become negligible and it behaves entirely like a single tiny point charge.",
+    "formula": "E = (&sigma; / 2&epsilon;<sub>0</sub>)[1 - x / (R<sup>2</sup> + x<sup>2</sup>)<sup>1/2</sup>]",
+    "formulaSub": "E is the electric field on the axis, &sigma; is the surface charge density, x is distance from center, and R is the disc radius.",
+    "analogy": "Up close, a drive-in movie screen looks like an endless wall of white, but from an airplane, it just looks like a tiny white dot.",
+    "topic": "Continuous Charge Distribution"
+  },
+  {
+    "id": 9,
+    "hook": "The Endless\nPlane",
+    "story": "An infinitely vast, flat sheet of uniform electrical charge creates a very special kind of electric field. Unlike point charges or wires, the electric field generated by this sheet never diminishes, no matter how far away you move from it. The field is perfectly uniform and constant everywhere in space, acting like a sheer, unyielding wall of force.",
+    "formula": "E = &sigma; / 2&epsilon;<sub>0</sub>",
+    "formulaSub": "E is the electric field, &sigma; is the surface charge density, and &epsilon;<sub>0</sub> is the permittivity of free space.",
+    "analogy": "Imagine standing in front of a massive, endless wall of giant industrial fans; the breeze is just as strong whether you are one step or ten steps away.",
+    "topic": "Continuous Charge Distribution"
+  },
+  {
+    "id": 10,
+    "hook": "A New\nGravity",
+    "story": "When a charged particle is placed into a uniform electric field, it experiences a constant, unwavering force. Because this force is steady, it acts exactly like gravity does on a falling object, giving the particle a constant acceleration. If you shoot a charged particle sideways into a uniform field, it will follow a smooth, parabolic path, just like a ball thrown horizontally on Earth.",
+    "formula": "a = qE/m",
+    "formulaSub": "a is the uniform acceleration, q is the particle's charge, E is the uniform electric field, and m is the mass of the particle.",
+    "analogy": "It's like playing baseball on a planet where gravity pulls sideways instead of downwards; the ball still arcs, but in a different direction.",
+    "topic": "Electric Field Dynamics"
+  },
+  {
+    "id": 11,
+    "hook": "Mapping the\nInvisible Field",
+    "story": "Electric field lines are imaginary curves that help us visualize the invisible electric field. The direction of the line tells you where a positive charge would be pushed. The closer these lines are to each other, the stronger the electric field is in that region.",
+    "formula": "",
+    "formulaSub": "",
+    "analogy": "Like contour lines on a map, closer electric field lines indicate a 'steeper' and stronger electric force.",
+    "topic": "Electric Field Lines"
+  },
+  {
+    "id": 12,
+    "hook": "Catching the\nElectric Flux",
+    "story": "Electric flux measures how much of the electric field passes through a given surface area. Think of it as the total number of electric field lines piercing through a window. The maximum flux occurs when the surface is perfectly perpendicular to the field.",
+    "formula": "&phi; = <b>E</b> &middot; <b>S</b> = ES cos &theta;",
+    "formulaSub": "&phi; is flux, E is electric field, S is area, &theta; is angle with normal.",
+    "analogy": "Imagine catching rain in a bucket; tilt the bucket, and you catch less rain (less flux).",
+    "topic": "Electric Flux"
+  },
+  {
+    "id": 13,
+    "hook": "Gauss's Law\nSimplified",
+    "story": "Gauss's Law is a magical shortcut in physics that connects the electric flux flowing out of a closed surface directly to the charge trapped inside. It doesn't matter what shape the surface is\u2014only the net charge enclosed matters. This makes calculating complex electric fields surprisingly easy.",
+    "formula": "&oint; <b>E</b> &middot; d<b>S</b> = q<sub>in</sub> / &epsilon;<sub>0</sub>",
+    "formulaSub": "q<sub>in</sub> is enclosed charge, &epsilon;<sub>0</sub> is permittivity.",
+    "analogy": "Like a glowing lightbulb inside a paper bag, the total light escaping depends only on the bulb's brightness, not the bag's shape.",
+    "topic": "Gauss's Law"
+  },
+  {
+    "id": 14,
+    "hook": "The Hollow\nShell Secret",
+    "story": "For a uniformly charged hollow spherical shell, the electric field behaves in two distinct ways. Outside the shell, it acts exactly as if all its charge were concentrated at the center. But inside the shell, the electric forces from all directions perfectly cancel out, leaving zero electric field.",
+    "formula": "E<sub>out</sub> = kq / r<sup>2</sup>, E<sub>in</sub> = 0",
+    "formulaSub": "k is Coulomb's constant, q is charge, r is distance.",
+    "analogy": "Inside the eye of a hurricane, it's perfectly calm (zero field), but outside, the winds are strong.",
+    "topic": "Electric Field of a Spherical Shell"
+  },
+  {
+    "id": 15,
+    "hook": "Inside the\nSolid Sphere",
+    "story": "Unlike a hollow shell, a solid sphere of charge has an electric field everywhere. Outside, it still mimics a point charge at the center. However, as you dig deeper inside the sphere, the electric field linearly decreases until it becomes zero exactly at the center.",
+    "formula": "E<sub>out</sub> = kQ / r<sup>2</sup>, E<sub>in</sub> = kQr / R<sup>3</sup>",
+    "formulaSub": "Q is total charge, R is sphere radius, r is distance from center.",
+    "analogy": "Like gravity inside the Earth, it gets weaker the closer you get to the core.",
+    "topic": "Electric Field of a Solid Sphere"
+  },
+  {
+    "id": 16,
+    "hook": "Infinite Line\nof Charge",
+    "story": "When dealing with an infinitely long, straight wire packed with charge, the electric field points radially outward like the bristles of a bottle brush. The strength of this field drops off inversely with the distance from the wire, rather than the square of the distance.",
+    "formula": "E = &lambda; / (2&pi;&epsilon;<sub>0</sub>r)",
+    "formulaSub": "&lambda; is linear charge density, r is radial distance.",
+    "analogy": "Like the heat radiating from a long, straight heating pipe\u2014the further you step back, the cooler it gets.",
+    "topic": "Electric Field of Line Charge"
+  },
+  {
+    "id": 17,
+    "hook": "Infinitely Long\nCharged Tube",
+    "story": "An infinitely long charged hollow tube or cylinder creates a radial electric field outside, identical to a line of charge. However, step inside the hollow region, and you'll find absolutely zero electric field, just like inside a spherical shell.",
+    "formula": "E<sub>out</sub> = &sigma;R / (&epsilon;<sub>0</sub>r), E<sub>in</sub> = 0",
+    "formulaSub": "&sigma; is surface charge density, R is tube radius.",
+    "analogy": "Like standing in an empty tunnel; all the noise is outside, but inside there is pure silence.",
+    "topic": "Electric Field of a Cylinder"
+  },
+  {
+    "id": 18,
+    "hook": "Energy of\nTwo Charges",
+    "story": "Electrostatic potential energy is the hidden energy stored between charges due to their interactions. If you bring two like charges close, you must do work against their repulsion, storing positive potential energy. Opposite charges attract, resulting in negative potential energy.",
+    "formula": "U = kq<sub>1</sub>q<sub>2</sub> / r",
+    "formulaSub": "k is constant, q<sub>1</sub> and q<sub>2</sub> are charges, r is distance.",
+    "analogy": "Like pushing two strong repelling magnets together, you feel the stored energy ready to snap them apart.",
+    "topic": "Electrostatic Potential Energy"
+  },
+  {
+    "id": 19,
+    "hook": "Energy of\na System",
+    "story": "For a system containing more than two charges, the total electric potential energy is the sum of the energies of every unique pair. You have to consider how every single charge interacts with every other charge, taking their signs into account.",
+    "formula": "U = &Sigma; kq<sub>i</sub>q<sub>j</sub> / r<sub>ij</sub>",
+    "formulaSub": "Sum over all unique pairs (i &lt; j).",
+    "analogy": "Like calculating the total handshake energy at a party where everyone shakes hands with everyone else exactly once.",
+    "topic": "Electrostatic Potential Energy"
+  },
+  {
+    "id": 20,
+    "hook": "Understanding\nElectric Potential",
+    "story": "Electric potential, or voltage, is the potential energy per unit charge. It represents the amount of work required to bring a tiny positive test charge from infinity to a specific point in space. It tells us the 'electric height' of that point.",
+    "formula": "V = U / q<sub>0</sub>",
+    "formulaSub": "V is potential, U is potential energy, q<sub>0</sub> is test charge.",
+    "analogy": "Think of it like altitude on a mountain; higher altitude means more gravitational potential, just like higher voltage means more electric potential.",
+    "topic": "Electric Potential"
+  },
+  {
+    "id": 21,
+    "hook": "Potential from\na Point Charge",
+    "story": "A single point charge creates an electric potential in the space around it that drops off inversely with distance. A positive charge creates an 'electric mountain' of positive potential, while a negative charge creates an 'electric valley' of negative potential.",
+    "formula": "V = kQ / r",
+    "formulaSub": "Q is the source charge, r is the distance from it.",
+    "analogy": "Like the temperature getting lower as you step further away from a campfire.",
+    "topic": "Electric Potential"
+  },
+  {
+    "id": 22,
+    "hook": "Connecting Field\nand Potential",
+    "story": "Electric field and electric potential are deeply connected. The electric field is simply the negative gradient of the potential, meaning the field points in the direction where the potential drops the fastest. Charges naturally want to slide down this potential slope.",
+    "formula": "E = - dV / dr",
+    "formulaSub": "E is electric field, dV/dr is the potential gradient.",
+    "analogy": "If potential is the height of a hill, the electric field is the steepness of the slope.",
+    "topic": "Relation Between E and V"
+  },
+  {
+    "id": 23,
+    "hook": "Potential Along\na Uniform Field",
+    "story": "In a uniform electric field, the potential decreases steadily as you move along the field lines. Moving perpendicular to the field lines requires no work, so the potential remains exactly the same.",
+    "formula": "&Delta;V = - Ed",
+    "formulaSub": "&Delta;V is potential difference, d is distance along the field.",
+    "analogy": "Like walking straight down a perfectly uniform ramp\u2014your height decreases at a constant rate.",
+    "topic": "Electric Potential"
+  },
+  {
+    "id": 24,
+    "hook": "Potential of\na Charged Ring",
+    "story": "For a uniformly charged ring, the potential at the exact center is simply the sum of all charges divided by the radius. When moving along the axis away from the center, the potential gradually decreases as the distance to the ring's edges increases.",
+    "formula": "V = kQ / &radic;(R<sup>2</sup> + x<sup>2</sup>)",
+    "formulaSub": "Q is ring charge, R is radius, x is distance along axis.",
+    "analogy": "Like standing perfectly in the center of a circular speaker array; the sound (potential) is equal from all sides.",
+    "topic": "Potential of Continuous Charges"
+  },
+  {
+    "id": 25,
+    "hook": "Potential of\na Charged Disc",
+    "story": "A charged disc creates a more complex potential along its axis. It can be found by adding up the potentials of many tiny concentric rings. The potential is highest right at the surface of the disc and slowly tapers off into space.",
+    "formula": "V = (&sigma; / 2&epsilon;<sub>0</sub>) [ &radic;(R<sup>2</sup> + x<sup>2</sup>) - x ]",
+    "formulaSub": "&sigma; is surface charge density, R is radius, x is axial distance.",
+    "analogy": "Like the heat you feel standing directly in front of a flat, glowing hot plate.",
+    "topic": "Potential of Continuous Charges"
+  },
+  {
+    "id": 26,
+    "hook": "Potential Inside\na Shell",
+    "story": "For a hollow spherical shell, the potential outside drops off like a point charge. But surprisingly, the potential anywhere inside the shell is entirely constant and equals the potential exactly at the surface, since there is no electric field inside to do any work.",
+    "formula": "V<sub>in</sub> = kQ / R, V<sub>out</sub> = kQ / r",
+    "formulaSub": "R is shell radius, r is distance from center.",
+    "analogy": "Like walking around on a flat plateau; you can move anywhere without changing your altitude.",
+    "topic": "Potential of Continuous Charges"
+  },
+  {
+    "id": 27,
+    "hook": "Potential Inside\na Solid Sphere",
+    "story": "A uniformly charged solid sphere creates a unique potential landscape. Outside, it acts like a point charge. But inside, the potential continues to rise as a parabolic curve, reaching its absolute maximum peak right at the dead center.",
+    "formula": "V<sub>in</sub> = (kQ / 2R<sup>3</sup>) (3R<sup>2</sup> - r<sup>2</sup>)",
+    "formulaSub": "r &le; R, meaning inside the sphere.",
+    "analogy": "Like climbing a gentle dome; it gets steeper at first but gradually levels off at the very top peak.",
+    "topic": "Potential of Continuous Charges"
+  },
+  {
+    "id": 28,
+    "hook": "Infinite Wire\nPotential",
+    "story": "The electric potential difference between two points near an infinitely long charged wire depends on the natural logarithm of the ratio of their distances from the wire.",
+    "formula": "V<sub>AB</sub> = -2K&lambda; ln(r<sub>B</sub> / r<sub>A</sub>)",
+    "formulaSub": "\u03bb is linear charge density, rA and rB are perpendicular distances.",
+    "analogy": "Like walking up a gradually flattening hill, the effort decreases as you get further away.",
+    "topic": "Electric Potential"
+  },
+  {
+    "id": 29,
+    "hook": "Infinite Sheet\nPotential",
+    "story": "For an infinitely large uniformly charged thin sheet, the electric field is uniform, so the potential difference changes linearly with the perpendicular distance.",
+    "formula": "V<sub>AB</sub> = -(&sigma; / 2&epsilon;<sub>0</sub>)(r<sub>B</sub> - r<sub>A</sub>)",
+    "formulaSub": "\u03c3 is surface charge density, r is the perpendicular distance.",
+    "analogy": "It's like walking against a constant headwind; the energy you spend depends only on how far you walk.",
+    "topic": "Electric Potential"
+  },
+  {
+    "id": 30,
+    "hook": "Equipotential\nSurfaces",
+    "story": "A surface where the electric potential is identical at every point. Moving a charge along this surface requires no work against electrostatic forces, and the electric field is always perpendicular to it.",
+    "formula": "W = 0, E &perp; Surface",
+    "formulaSub": "W is work done, E is electric field.",
+    "analogy": "Think of it like walking along a perfectly flat contour line on a mountain\u2014you don't climb up or down.",
+    "topic": "Equipotential Surfaces"
+  },
+  {
+    "id": 31,
+    "hook": "Shapes Of\nEquipotentials",
+    "story": "The shape of equipotential surfaces depends on the charge distribution. Point charges create concentric spheres, line charges create coaxial cylinders, and large uniform sheets create parallel planes.",
+    "formula": "|E| = &Delta;V / &Delta;d",
+    "formulaSub": "\u0394V is potential difference, \u0394d is perpendicular distance.",
+    "analogy": "Like ripples in a pond, the shape of the wave depends on whether you dropped a pebble or a long stick.",
+    "topic": "Equipotential Surfaces"
+  },
+  {
+    "id": 32,
+    "hook": "Shell\nSelf-Energy",
+    "story": "To assemble a uniformly charged spherical shell, work is done to bring charges from infinity. This work is stored as the self-energy or potential energy of the shell.",
+    "formula": "U = kQ<sup>2</sup> / 2R",
+    "formulaSub": "Q is total charge, R is radius of the shell, k is Coulomb's constant.",
+    "analogy": "Like inflating a balloon, each puff of air (charge) faces more resistance from the air already inside.",
+    "topic": "Electrostatic Energy"
+  },
+  {
+    "id": 33,
+    "hook": "Solid Sphere\nEnergy",
+    "story": "Building a uniformly charged solid sphere requires bringing charges from infinity to gradually increase its radius, storing potential energy in its entire volume.",
+    "formula": "U = 3kQ<sup>2</sup> / 5R",
+    "formulaSub": "Q is total charge, R is radius of the solid sphere.",
+    "analogy": "Similar to packing snow into an increasingly tight and large snowball.",
+    "topic": "Electrostatic Energy"
+  },
+  {
+    "id": 34,
+    "hook": "Energy\nDensity",
+    "story": "The energy stored per unit volume in any electric field. Space itself stores energy wherever an electric field is present.",
+    "formula": "u = 1/2 &epsilon;E<sup>2</sup>",
+    "formulaSub": "\u03b5 is permittivity of medium, E is electric field intensity.",
+    "analogy": "Like a stretched rubber band, space itself stores the potential energy.",
+    "topic": "Electrostatic Energy"
+  },
+  {
+    "id": 35,
+    "hook": "Electric\nDipole",
+    "story": "A system of two equal and opposite point charges separated by a small distance. The dipole moment points from the negative to the positive charge.",
+    "formula": "p = q &times; a",
+    "formulaSub": "q is magnitude of charge, a is the separation distance.",
+    "analogy": "Like a tiny magnet with a north and south pole, but for electricity.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 36,
+    "hook": "Axial Dipole\nField",
+    "story": "On the axis of a short dipole, the electric field points in the same direction as the dipole moment and decreases with the cube of the distance.",
+    "formula": "E<sub>axial</sub> = 2Kp / r<sup>3</sup>",
+    "formulaSub": "p is dipole moment, r is distance from center.",
+    "analogy": "Like feeling the push of a fan directly in front of it.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 37,
+    "hook": "Equatorial Dipole\nField",
+    "story": "On the perpendicular bisector (equatorial position) of a short dipole, the electric field points opposite to the dipole moment.",
+    "formula": "E<sub>eqt</sub> = -Kp / r<sup>3</sup>",
+    "formulaSub": "The negative sign indicates direction opposite to the dipole moment.",
+    "analogy": "Like standing to the side of a fan where the air gets pulled backward.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 38,
+    "hook": "Axial Dipole\nPotential",
+    "story": "The electric potential on the axial line of a short dipole falls off with the square of the distance, unlike a single point charge which falls off linearly.",
+    "formula": "V<sub>axial</sub> = Kp / r<sup>2</sup>",
+    "formulaSub": "p is dipole moment, r is distance from center.",
+    "analogy": "The opposing charges nearly cancel each other out, leaving only a residual effect that fades quickly.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 39,
+    "hook": "General Dipole\nPotential",
+    "story": "The potential at any general point due to a short dipole depends on both the distance and the angle with the dipole axis. It is zero everywhere on the equatorial plane.",
+    "formula": "V = Kp cos&theta; / r<sup>2</sup>",
+    "formulaSub": "\u03b8 is the angle between the dipole moment and the position vector.",
+    "analogy": "The effect fades as you move further away or rotate towards the middle where it vanishes completely.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 40,
+    "hook": "Dipole\nTorque",
+    "story": "A dipole placed in a uniform electric field experiences no net force, but feels a torque that tries to align it with the field.",
+    "formula": "&tau; = pE sin&theta;",
+    "formulaSub": "p is dipole moment, E is electric field, \u03b8 is angle between them.",
+    "analogy": "Like a compass needle swinging to align with Earth's magnetic field.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 41,
+    "hook": "Dipole Potential\nEnergy",
+    "story": "The interaction energy of a dipole in an electric field depends on its orientation. It is minimum (stable) when aligned with the field and maximum (unstable) when anti-aligned.",
+    "formula": "U = -pE cos&theta;",
+    "formulaSub": "Dot product of dipole moment and electric field.",
+    "analogy": "Like a pendulum resting at the bottom (stable) vs balancing at the very top (unstable).",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 42,
+    "hook": "Dipole Net\nForce",
+    "story": "In a non-uniform electric field, a dipole experiences both a torque and a net force, because the field is stronger at one charge than the other.",
+    "formula": "F<sub>net</sub> = p(dE/dx)",
+    "formulaSub": "dE/dx is the electric field gradient.",
+    "analogy": "Like a stick floating in a river where the current is faster on one side.",
+    "topic": "Electric Dipole"
+  },
+  {
+    "id": 43,
+    "hook": "Conductors In\nEquilibrium",
+    "story": "In a solid conductor in electrostatic equilibrium, all excess charge resides entirely on the outer surface, and the electric field inside is exactly zero.",
+    "formula": "E<sub>in</sub> = 0",
+    "formulaSub": "The interior of a conductor has no net electric field.",
+    "analogy": "Like a perfect shield, it completely blocks external electrical disturbances from getting inside.",
+    "topic": "Conductors"
+  },
+  {
+    "id": 44,
+    "hook": "Surface Electric\nField",
+    "story": "The electric field just outside the surface of a charged conductor is directly proportional to the local surface charge density and is perfectly perpendicular to the surface.",
+    "formula": "E = &sigma; / &epsilon;<sub>0</sub>",
+    "formulaSub": "\u03c3 is local surface charge density.",
+    "analogy": "Like water spraying straight out from tiny holes in a pressurized hose.",
+    "topic": "Conductors"
+  },
+  {
+    "id": 45,
+    "hook": "Electrostatic\nPressure",
+    "story": "Charges on the surface of a conductor repel each other, creating an outward force. This results in an electrostatic pressure pushing outward on the conductor's surface.",
+    "formula": "P = &sigma;<sup>2</sup> / 2&epsilon;<sub>0</sub>",
+    "formulaSub": "P is pressure, \u03c3 is surface charge density.",
+    "analogy": "Like the pressure of a gas trying to expand a balloon from the inside.",
+    "topic": "Conductors"
+  },
+  {
+    "id": 46,
+    "hook": "Charge\nSharing",
+    "story": "When two conducting spherical shells are connected by a wire, charge flows until their potentials are equal. The final charges are directly proportional to their radii.",
+    "formula": "q<sub>1</sub> / q<sub>2</sub> = R<sub>1</sub> / R<sub>2</sub>",
+    "formulaSub": "Final charges q are proportional to radii R.",
+    "analogy": "Like two connected water tanks leveling out to the same water height, regardless of their widths.",
+    "topic": "Conductors"
+  }
+],
+  "units_dimensions": [
+  {
+    "id": 1,
+    "hook": "Measuring\nThe Universe",
+    "story": "Physics relies on things we can actually measure, called physical quantities. Every measurement consists of a number and a unit. Interestingly, if you change the unit to be smaller, the numerical value gets proportionally larger, so the overall magnitude stays perfectly constant.",
+    "formula": "n<sub>1</sub>u<sub>1</sub> = n<sub>2</sub>u<sub>2</sub> = Constant",
+    "formulaSub": "n is the numerical value and u is the unit of measurement.",
+    "analogy": "If you cut a pizza into smaller slices, you get more slices, but the total amount of pizza remains exactly the same.",
+    "topic": "Units and Dimensions"
+  },
+  {
+    "id": 2,
+    "hook": "The Building\nBlocks",
+    "story": "Just like the entire English language is built from 26 letters, all of physics can be described using just a few independent base quantities. The International System (SI) recognizes seven fundamental quantities that cover the entire span of physical phenomena. These basic quantities are independent of each other and cannot be further broken down.",
+    "formula": "[L], [M], [T], [K], [A], [Cd], [mol]",
+    "formulaSub": "The dimensional symbols for length, mass, time, temperature, current, luminous intensity, and amount of substance.",
+    "analogy": "They are like the primary colors\u2014red, blue, and yellow\u2014from which you can mix any other color in the universe.",
+    "topic": "Units and Dimensions"
+  },
+  {
+    "id": 3,
+    "hook": "Mixing\nThe Basics",
+    "story": "When you multiply or divide fundamental quantities, you get derived quantities. For example, multiplying length by length gives you area, while dividing distance by time gives you velocity. These quantities represent more complex physical concepts but are ultimately just combinations of the basic building blocks.",
+    "formula": "v = d / t",
+    "formulaSub": "Velocity (v) is derived from distance (d) and time (t).",
+    "analogy": "It's like baking a cake by combining basic ingredients like flour, sugar, and eggs in different proportions.",
+    "topic": "Units and Dimensions"
+  },
+  {
+    "id": 4,
+    "hook": "The Physical\nDNA",
+    "story": "Dimensions reveal the true identity of a physical quantity by showing which fundamental quantities it contains and in what proportion. It doesn't matter if you measure force in Newtons or dynes; its dimensional formula remains exactly the same. We use square brackets to write these formulas, stripping away the numerical magnitudes to look purely at the physical nature.",
+    "formula": "[F] = [M<sup>1</sup>L<sup>1</sup>T<sup>-2</sup>]",
+    "formulaSub": "The dimensional formula for Force (F), derived from mass times acceleration.",
+    "analogy": "It is like the genetic code of a quantity, telling you exactly what fundamental traits it inherited.",
+    "topic": "Units and Dimensions"
+  },
+  {
+    "id": 5,
+    "hook": "Apples And\nOranges",
+    "story": "You can only add or subtract things that have the exact same dimensions. You can't add 5 kilograms to 3 seconds, because they represent entirely different physical realities. However, this restriction doesn't apply to multiplication and division, which is how we create new derived quantities.",
+    "formula": "If x = A &plusmn; B, then [x] = [A] = [B]",
+    "formulaSub": "The dimensions of terms added or subtracted must be absolutely identical.",
+    "analogy": "You can multiply apples and baskets to get total apples, but you can only add apples to other apples.",
+    "topic": "Dimensional Analysis"
+  },
+  {
+    "id": 6,
+    "hook": "The Ghost\nNumbers",
+    "story": "Some quantities in physics exist purely as ratios or numbers and have no physical dimensions at all. Angles, trigonometric functions, exponents, and logarithms fall into this category. When doing dimensional analysis, these ghost-like quantities simply reduce to 1, as they are completely independent of mass, length, or time.",
+    "formula": "[&theta;] = [M<sup>0</sup>L<sup>0</sup>T<sup>0</sup>] = 1",
+    "formulaSub": "An angle (&theta;) is just the ratio of two lengths (arc and radius), making it purely a number.",
+    "analogy": "They are like percentages\u2014a 50% discount is just a ratio, not a physical object you can hold.",
+    "topic": "Dimensional Analysis"
+  },
+  {
+    "id": 7,
+    "hook": "Translating\nThe Units",
+    "story": "When switching between systems like SI and CGS, the numerical value of a measurement must adapt to keep the physical reality constant. We can use dimensional formulas to find the exact conversion factor between any two systems. By comparing the base units of mass, length, and time in both systems, we can easily translate a quantity into a completely new hypothetical system.",
+    "formula": "n<sub>2</sub> = n<sub>1</sub> [M<sub>1</sub>/M<sub>2</sub>]<sup>a</sup> [L<sub>1</sub>/L<sub>2</sub>]<sup>b</sup> [T<sub>1</sub>/T<sub>2</sub>]<sup>c</sup>",
+    "formulaSub": "Converts a numerical value n1 from one unit system to n2 in another system.",
+    "analogy": "It's like exchanging currencies at the bank; the absolute value of your money stays the same, just the numbers and symbols change.",
+    "topic": "Dimensional Analysis"
+  },
+  {
+    "id": 8,
+    "hook": "Slicing\nThe Circle",
+    "story": "An angle measures the amount of revolution a line makes from its starting position. While we often use degrees in daily life, physics prefers radians, which directly link the angle to the arc length and radius of a circle. One radian is exactly the angle where the arc length equals the radius.",
+    "formula": "&theta; = l / r",
+    "formulaSub": "&theta; is the angle in radians, l is arc length, and r is the radius.",
+    "analogy": "Imagine wrapping the radius of a circle around its edge; the angle that slice makes is exactly one radian.",
+    "topic": "Basic Mathematics"
+  },
+  {
+    "id": 9,
+    "hook": "Triangles And\nShadows",
+    "story": "Trigonometric ratios connect the angles of a right-angled triangle to the lengths of its sides. Sine, cosine, and tangent are simply fractions comparing the perpendicular, base, and hypotenuse. These basic ratios form the backbone for resolving vectors and analyzing waves in physics.",
+    "formula": "sin &theta; = Perpendicular / Hypotenuse",
+    "formulaSub": "The sine of an angle gives the ratio of the side opposite the angle to the longest side.",
+    "analogy": "Like a ladder leaning on a wall, trig ratios tell you exactly how high it reaches based on how steep it's placed.",
+    "topic": "Basic Mathematics"
+  },
+  {
+    "id": 10,
+    "hook": "The Four\nQuadrants",
+    "story": "As an angle revolves beyond 90 degrees, its trigonometric ratios can become negative depending on which quadrant it lands in. The ASTC rule (All, Sin, Tan, Cos) tells us exactly which functions stay positive in quadrants I, II, III, and IV respectively. This is essential for understanding rotating objects and oscillating waves that cycle through full circles.",
+    "formula": "sin(&pi; - &theta;) = +sin &theta;",
+    "formulaSub": "In the second quadrant, the sine function remains positive.",
+    "analogy": "It's like a compass that tells you which specific mathematical 'seasons' are positive in different parts of the year.",
+    "topic": "Basic Mathematics"
+  },
+  {
+    "id": 11,
+    "hook": "Small Angles\nMade Simple",
+    "story": "When angles are incredibly small, trigonometric functions become a lot easier to handle. Instead of using complex tables or calculators, we can approximate the values directly. This trick saves a ton of time in complex physics derivations!",
+    "formula": "sin &theta; &approx; &theta;, cos &theta; &approx; 1, tan &theta; &approx; &theta;",
+    "formulaSub": "&theta; must be measured in radians.",
+    "analogy": "It's like viewing a gently curved road from up close; it looks practically straight.",
+    "topic": "Basic Mathematics"
+  },
+  {
+    "id": 12,
+    "hook": "Binomial\nApproximation",
+    "story": "Calculating higher powers of quantities close to one can be tedious. The binomial approximation lets us drop negligibly small terms, turning a tricky power into a simple multiplication. It's a lifesaver when dealing with tiny changes in physical quantities.",
+    "formula": "(1 + x)<sup>n</sup> &approx; 1 + nx",
+    "formulaSub": "Valid only when x is very small compared to 1.",
+    "analogy": "If you have a million dollars, finding a penny doesn't change your wealth; you can just ignore it.",
+    "topic": "Basic Mathematics"
+  },
+  {
+    "id": 13,
+    "hook": "What are\nScalars?",
+    "story": "Some physical quantities are completely described just by their magnitude or size. They don't care about direction at all and follow everyday rules of basic algebra. Think of things like mass, time, and temperature.",
+    "formula": "m<sub>1</sub> + m<sub>2</sub> = M",
+    "formulaSub": "Simple algebraic addition of magnitudes.",
+    "analogy": "It's like counting the total number of apples in a basket; the direction they face doesn't matter.",
+    "topic": "Vectors"
+  },
+  {
+    "id": 14,
+    "hook": "Enter\nthe Vector",
+    "story": "Vectors are special quantities that need both a magnitude and a specific direction to be fully defined. But that's not all\u2014they must also obey special vector algebra rules like the triangle law of addition. Current has direction, but isn't a vector because it breaks these addition rules!",
+    "formula": "A&#8407; + B&#8407; = B&#8407; + A&#8407;",
+    "formulaSub": "Vectors must obey the commutative law of addition.",
+    "analogy": "It's like giving someone a treasure map; you must tell them both how far to walk and in what direction.",
+    "topic": "Vectors"
+  },
+  {
+    "id": 15,
+    "hook": "Angle Between\nVectors",
+    "story": "Finding the angle between two vectors requires them to be arranged properly. You must place them tail-to-tail or head-to-head. The true angle is always the smaller of the two angles formed between them.",
+    "formula": "0 &le; &theta; &le; &pi;",
+    "formulaSub": "&theta; is the smaller angle when tails coincide.",
+    "analogy": "It's like measuring the angle between the two hands of a clock starting from the center pin.",
+    "topic": "Vectors"
+  },
+  {
+    "id": 16,
+    "hook": "The Null\nVector",
+    "story": "Sometimes forces or velocities cancel each other out completely. When this happens, we get a vector with zero magnitude, known as a null or zero vector. Interestingly, its direction is completely indeterminate!",
+    "formula": "A&#8407; + (-A&#8407;) = 0&#8407;",
+    "formulaSub": "The sum of two equal and opposite vectors.",
+    "analogy": "It's like a perfectly matched tug-of-war where the rope doesn't move at all.",
+    "topic": "Types of Vectors"
+  },
+  {
+    "id": 17,
+    "hook": "The Unit\nVector",
+    "story": "When we only care about pointing in a specific direction without changing the size of a quantity, we use a unit vector. It has a magnitude of exactly one. We find it by dividing a vector by its own magnitude.",
+    "formula": "A&#770; = A&#8407; / |A&#8407;|",
+    "formulaSub": "A cap (A&#770;) denotes a unit vector.",
+    "analogy": "It's like a standard compass needle; it only shows you the way without telling you how far to go.",
+    "topic": "Types of Vectors"
+  },
+  {
+    "id": 18,
+    "hook": "Triangle Law\nof Addition",
+    "story": "When we want to add two vectors together, we can place the tail of the second vector on the head of the first. The resultant vector is drawn from the tail of the first directly to the head of the second. This creates a triangle representing the combined effect.",
+    "formula": "R = &radic;(A<sup>2</sup> + B<sup>2</sup> + 2AB cos&theta;)",
+    "formulaSub": "R is the magnitude of the resultant vector sum.",
+    "analogy": "It's like taking a detour through two streets and then finding a straight shortcut back to the start.",
+    "topic": "Vector Addition"
+  },
+  {
+    "id": 19,
+    "hook": "Parallelogram Law\nof Addition",
+    "story": "If two vectors start from the exact same point, they can form the adjacent sides of a parallelogram. The diagonal passing through that common starting point gives the resultant sum of the vectors. The formula for the magnitude is identical to the triangle law!",
+    "formula": "tan &alpha; = (B sin&theta;) / (A + B cos&theta;)",
+    "formulaSub": "&alpha; gives the direction of the resultant relative to vector A.",
+    "analogy": "It's like two dogs pulling on a single toy from different angles; the toy moves along the diagonal.",
+    "topic": "Vector Addition"
+  },
+  {
+    "id": 20,
+    "hook": "Subtracting\nVectors",
+    "story": "Subtracting one vector from another is really just a clever disguise for addition. You simply reverse the direction of the vector you want to subtract, and then add it to the first. This is incredibly useful for finding changes in velocity or position!",
+    "formula": "|A&#8407; - B&#8407;| = &radic;(A<sup>2</sup> + B<sup>2</sup> - 2AB cos&theta;)",
+    "formulaSub": "Subtracting B is exactly the same as adding -B.",
+    "analogy": "It's like walking backward instead of forward; you are still moving, just in the exact opposite direction.",
+    "topic": "Vector Subtraction"
+  },
+  {
+    "id": 21,
+    "hook": "Resolving into\nComponents",
+    "story": "Any vector can be broken down into pieces called components, usually along the X and Y axes. These components act together to produce the exact same effect as the original vector. It turns complex angled vector math into simple straight-line arithmetic.",
+    "formula": "A<sub>x</sub> = A cos&alpha;, A<sub>y</sub> = A sin&alpha;",
+    "formulaSub": "Components of a vector making angle &alpha; with the X-axis.",
+    "analogy": "It's like moving diagonally across a chessboard by taking one step forward and one step sideways.",
+    "topic": "Resolution of Vectors"
+  },
+  {
+    "id": 22,
+    "hook": "Direction\nCosines",
+    "story": "In 3D space, a vector makes distinct angles with the X, Y, and Z axes. The cosines of these three angles are called direction cosines. They beautifully link the individual components to the vector's total magnitude.",
+    "formula": "cos<sup>2</sup>&alpha; + cos<sup>2</sup>&beta; + cos<sup>2</sup>&gamma; = 1",
+    "formulaSub": "The sum of the squares of direction cosines is always 1.",
+    "analogy": "It's like assigning a percentage of the total journey to the North, East, and Up directions.",
+    "topic": "Resolution of Vectors"
+  },
+  {
+    "id": 23,
+    "hook": "Position\nVector",
+    "story": "To track where an object is, we draw a vector from the origin of our coordinate system straight to the object's location. This is its position vector. It instantly translates geometric coordinates into a mathematical vector format we can calculate with.",
+    "formula": "r&#8407; = x i&#770; + y j&#770; + z k&#770;",
+    "formulaSub": "x, y, and z are the coordinates of the point.",
+    "analogy": "It's like drawing a straight laser beam from your eye to a star in the night sky.",
+    "topic": "Position and Displacement"
+  },
+  {
+    "id": 24,
+    "hook": "Displacement\nVector",
+    "story": "When an object moves from one point to another, the change in its position is completely captured by the displacement vector. It only cares about where the object started and where it ended up, completely ignoring the path taken.",
+    "formula": "s&#8407; = r&#8407;<sub>f</sub> - r&#8407;<sub>i</sub> = (x<sub>2</sub>-x<sub>1</sub>)i&#770; + (y<sub>2</sub>-y<sub>1</sub>)j&#770; + (z<sub>2</sub>-z<sub>1</sub>)k&#770;",
+    "formulaSub": "Represents the shortest straight line between start and end points.",
+    "analogy": "It's how the crow flies from your house to the store, regardless of the winding roads.",
+    "topic": "Position and Displacement"
+  },
+  {
+    "id": 25,
+    "hook": "The Scalar\nProduct",
+    "story": "The scalar product, or dot product, multiplies two vectors together to give a simple scalar number. It measures how much one vector aligns with another. If the vectors are perfectly perpendicular, their dot product is an absolute zero!",
+    "formula": "A&#8407; &middot; B&#8407; = AB cos&theta;",
+    "formulaSub": "Yields a scalar value based on the alignment of vectors.",
+    "analogy": "It's like measuring how much of your push is actually helping a car move forward, ignoring any sideways effort.",
+    "topic": "Vector Multiplication"
+  },
+  {
+    "id": 26,
+    "hook": "The Vector\nProduct",
+    "story": "The vector product, or cross product, multiplies two vectors to create an entirely new vector. This new vector is perfectly perpendicular to the plane containing the original two. We use the right-hand thumb rule to figure out which way this new vector points.",
+    "formula": "A&#8407; &times; B&#8407; = AB sin&theta; n&#770;",
+    "formulaSub": "The result is a vector perpendicular to both A and B.",
+    "analogy": "It's like turning a screw; applying a force in a circle makes the screw move straight down or up!",
+    "topic": "Vector Multiplication"
+  },
+  {
+    "id": 27,
+    "hook": "Right-Hand\nThumb Rule",
+    "story": "When finding the direction of a cross product, your hand comes to the rescue. Curl the fingers of your right hand from the first vector toward the second. Your extended thumb will magically point exactly in the direction of the resulting vector!",
+    "formula": "n&#770; = (A&#8407; &times; B&#8407;) / |A&#8407; &times; B&#8407;|",
+    "formulaSub": "n&#770; is the unit vector given by the right-hand rule.",
+    "analogy": "It's just like the rule for tightening a jar lid\u2014turn it right, and it pushes down.",
+    "topic": "Vector Multiplication"
+  }
+]
+};
+
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   0. RESET & FOUNDATIONS
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep:    #07070d;
+  --bg-card:    rgba(14, 14, 26, 0.72);
+  --bg-surface: rgba(22, 22, 42, 0.55);
+  --text-primary:   #f0f0f5;
+  --text-secondary: #a0a0b8;
+  --text-muted:     #6a6a80;
+
+  --accent:        hsl(225, 100%, 62%);
+  --accent-bright: hsl(225, 100%, 72%);
+  --accent-glow:   hsla(225, 100%, 62%, 0.35);
+  --accent-dim:    hsla(225, 100%, 62%, 0.12);
+  --accent2:       hsl(270, 90%, 65%);
+  --accent2-glow:  hsla(270, 90%, 65%, 0.30);
+  --gradient:      linear-gradient(135deg, var(--accent), var(--accent2));
+
+  --green:      hsl(145, 72%, 50%);
+  --green-glow: hsla(145, 72%, 50%, 0.35);
+  --orange:     hsl(24, 100%, 55%);
+  --orange-glow:hsla(24, 100%, 55%, 0.4);
+
+  --font-display: 'Poppins', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
+  --space-4: 16px; --space-5: 20px; --space-6: 24px;
+  --space-7: 32px; --space-8: 48px;
+
+  --radius-sm: 8px; --radius-md: 16px; --radius-lg: 24px;
+
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --progress-h: 3px;
+}
+
+html, body {
+  height: 100%; overflow: hidden; background: var(--bg-deep); color: var(--text-primary);
+  font-family: var(--font-body); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================================
+   1. MOOD THEMES
+   ============================================================ */
+:root.mood-calm, body.mood-calm {
+  --accent: hsl(175, 80%, 45%); --accent-bright: hsl(175, 80%, 60%);
+  --accent-glow: hsla(175, 80%, 45%, 0.35); --accent-dim: hsla(175, 80%, 45%, 0.12);
+  --accent2: hsl(200, 85%, 55%); --accent2-glow: hsla(200, 85%, 55%, 0.30);
+}
+:root.mood-exam, body.mood-exam {
+  --accent: hsl(340, 95%, 55%); --accent-bright: hsl(340, 95%, 68%);
+  --accent-glow: hsla(340, 95%, 55%, 0.35); --accent-dim: hsla(340, 95%, 55%, 0.12);
+  --accent2: hsl(20, 100%, 55%); --accent2-glow: hsla(20, 100%, 55%, 0.30);
+}
+:root.mood-quick, body.mood-quick {
+  --accent: hsl(48, 100%, 52%); --accent-bright: hsl(48, 100%, 65%);
+  --accent-glow: hsla(48, 100%, 52%, 0.30); --accent-dim: hsla(48, 100%, 52%, 0.10);
+  --accent2: hsl(30, 100%, 55%); --accent2-glow: hsla(30, 100%, 55%, 0.25);
+}
+
+.mood-exam .card-story { opacity: 0.55; font-size: 0.82rem !important; max-height: 3.2em; overflow: hidden; }
+.mood-exam .card-formula { font-size: 1.6rem !important; padding: var(--space-6) !important; }
+.mood-exam .card-analogy { display: none; }
+.mood-quick .card-story, .mood-quick .card-analogy { display: none; }
+.mood-quick .card-formula { font-size: 1.8rem !important; padding: var(--space-7) !important; }
+.mood-quick .card-hook { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
+
+/* ============================================================
+   7. DOUBT LAYER (BOTTOM SHEET)
+   ============================================================ */
+.doubt-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 800; opacity: 0; visibility: hidden; transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.doubt-overlay.open { opacity: 1; visibility: visible; }
+.doubt-sheet { position: fixed; bottom: 0; left: 0; width: 100%; height: 85vh; background: var(--bg-card); border-top-left-radius: 24px; border-top-right-radius: 24px; z-index: 900; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); display: flex; flex-direction: column; box-shadow: 0 -10px 40px rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.05); }
+.doubt-sheet.open { transform: translateY(0); }
+.doubt-sheet-handle { width: 40px; height: 5px; background: rgba(255,255,255,0.2); border-radius: 3px; margin: 12px auto; }
+.doubt-sheet-header { display: flex; justify-content: space-between; align-items: center; padding: 0 var(--space-4) var(--space-3); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.doubt-sheet-title { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;}
+.api-badge { font-size: 0.7rem; background: var(--accent-dim); color: var(--accent-bright); padding: 2px 8px; border-radius: 12px; border: 1px solid var(--accent-glow); }
+.doubt-close-btn { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; padding: 5px; }
+.doubt-chat { flex: 1; overflow-y: auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.doubt-bubble { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.4; animation: popIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.doubt-bubble.user { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
+.doubt-bubble.ai { align-self: flex-start; background: rgba(255,255,255,0.08); color: var(--text-primary); border-bottom-left-radius: 4px; }
+.doubt-input-area { padding: var(--space-3) var(--space-4); border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 10px; background: var(--bg-deep); }
+.doubt-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 12px 16px; color: var(--text-primary); font-size: 1rem; outline: none; transition: 0.3s; }
+.doubt-input:focus { border-color: var(--accent-glow); background: rgba(255,255,255,0.08); }
+.doubt-send-btn { background: var(--accent); color: white; border: none; border-radius: 20px; padding: 0 20px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.doubt-send-btn:active { transform: scale(0.95); }
+.typing-indicator { display: flex; gap: 4px; align-items: center; justify-content: center; height: 20px; }
+.typing-indicator span { width: 6px; height: 6px; background: var(--text-secondary); border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+/* ============================================================
+   2. PROGRESS BAR & HEADER (With Streak)
+   ============================================================ */
+.progress-bar { position: fixed; top: var(--safe-top); left: 0; right: 0; z-index: 200; display: flex; gap: 3px; padding: var(--space-2) var(--space-3) 0; pointer-events: none; }
+.progress-segment { flex: 1; height: var(--progress-h); border-radius: 2px; background: rgba(255,255,255,0.12); position: relative; overflow: hidden; }
+.progress-segment::after { content: ''; position: absolute; inset: 0; border-radius: 2px; background: var(--gradient); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.progress-segment.visited::after { transform: scaleX(1); opacity: 0.5; }
+.progress-segment.active::after { transform: scaleX(1); opacity: 1; }
+.progress-segment.mastered { box-shadow: 0 0 6px var(--green-glow); }
+.progress-segment.mastered::after { background: var(--green) !important; transform: scaleX(1); opacity: 0.85; }
+
+.header { position: fixed; top: calc(var(--safe-top) + var(--progress-h) + var(--space-2)); left: 0; right: 0; z-index: 150; display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-4); pointer-events: none; }
+.header > * { pointer-events: auto; }
+.header-title { font-family: var(--font-display); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
+.header-chapter { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+.header-right { display: flex; gap: var(--space-2); align-items: center; }
+
+.pill { display: flex; align-items: center; gap: var(--space-1); background: var(--bg-surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 4px 10px; font-size: 0.72rem; color: var(--text-secondary); cursor: pointer; transition: all 0.3s ease; }
+.mood-pill:hover { border-color: var(--accent-glow); }
+.streak-pill { color: var(--orange); font-weight: 700; border-color: rgba(255,100,0,0.2); }
+.streak-pill.active { box-shadow: 0 0 15px var(--orange-glow); border-color: var(--orange); }
+@keyframes firePulse { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.1); filter: brightness(1.2); } }
+.streak-pill.active .emoji { animation: firePulse 1s ease-in-out infinite; }
+
+/* ============================================================
+   3. FEED & CARDS
+   ============================================================ */
+.feed { height: 100dvh; overflow-y: scroll; scroll-snap-type: y mandatory; overscroll-behavior-y: contain; scrollbar-width: none; }
+.feed::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: no-preference) { .feed { scroll-behavior: smooth; } }
+
+.card { height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: var(--space-4); padding-top: calc(var(--safe-top) + 52px); padding-bottom: calc(var(--safe-bottom) + var(--space-7)); position: relative; user-select: none; -webkit-user-select: none; }
+.card-inner { position: relative; width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-6) var(--space-5); border-radius: var(--radius-lg); background: var(--bg-card); backdrop-filter: blur(24px) saturate(1.2); -webkit-backdrop-filter: blur(24px) saturate(1.2); border: 1px solid rgba(255,255,255,0.06); overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease; }
+.card-inner::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: linear-gradient(135deg, var(--accent-glow), transparent 50%, var(--accent2-glow)); z-index: -1; opacity: 0; transition: opacity 0.6s ease; }
+.card.is-active .card-inner::before { opacity: 1; }
+.card::before { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow), transparent 70%); top: 15%; left: -20%; filter: blur(60px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+.card::after { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, var(--accent2-glow), transparent 70%); bottom: 20%; right: -15%; filter: blur(50px); opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+.card.is-active::before, .card.is-active::after { opacity: 1; }
+
+.card-number { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.card-hook { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.3rem, 5.5vw, 2rem); line-height: 1.15; color: var(--text-primary); letter-spacing: -0.02em; }
+.card-story { font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); max-width: 38ch; }
+.card-formula { font-family: var(--font-mono); font-weight: 700; font-size: clamp(1.15rem, 4.5vw, 1.45rem); color: var(--accent-bright); text-align: center; padding: var(--space-5) var(--space-4); background: rgba(0,0,0,0.35); border: 1px solid var(--accent-dim); border-radius: var(--radius-md); position: relative; overflow: hidden; letter-spacing: 0.02em; line-height: 1.5; }
+.card-formula sup { font-size: 0.65em; vertical-align: super; }
+.card-formula sub { font-size: 0.65em; vertical-align: sub; }
+.card-formula .vec { text-decoration: overline; }
+.card-formula::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; border: 1px solid transparent; background: linear-gradient(135deg, var(--accent-glow), transparent, var(--accent2-glow)) border-box; mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+@keyframes formulaGlow { 0%, 100% { box-shadow: 0 0 15px var(--accent-glow), inset 0 0 15px rgba(0,0,0,0.2); } 50% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-dim), inset 0 0 15px rgba(0,0,0,0.2); } }
+.card.is-active .card-formula { animation: formulaGlow 3s ease-in-out infinite; }
+.card-analogy { font-size: 0.8rem; font-style: italic; color: var(--text-muted); line-height: 1.5; padding-left: var(--space-3); border-left: 2px solid var(--accent-dim); }
+.card-analogy .analogy-icon { font-style: normal; margin-right: var(--space-1); }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.topic-pill { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: var(--accent-dim); padding: 4px 10px; border-radius: 12px; }
+
+.card-hook, .card-story, .card-formula, .card-analogy, .card-footer { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.card.is-active .card-hook { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.card.is-active .card-story { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+.card.is-active .card-formula { opacity: 1; transform: translateY(0); transition-delay: 0.20s; }
+.card.is-active .card-analogy { opacity: 1; transform: translateY(0); transition-delay: 0.30s; }
+.card.is-active .card-footer { opacity: 1; transform: translateY(0); transition-delay: 0.38s; }
+.card-number { transition: opacity 0.4s ease; }
+
+/* ============================================================
+   4. VARIABLE REWARDS & MASTERED STATE
+   ============================================================ */
+.card.is-mastered .card-inner { border-color: var(--green-glow); }
+.mastered-badge { display: none; position: absolute; top: var(--space-4); right: var(--space-4); width: 28px; height: 28px; border-radius: 50%; background: var(--green); align-items: center; justify-content: center; box-shadow: 0 0 12px var(--green-glow); z-index: 5; }
+.mastered-badge svg { width: 16px; height: 16px; }
+.card.is-mastered .mastered-badge { display: flex; }
+
+@keyframes masteredPulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 var(--green-glow); } 50% { transform: scale(1.02); box-shadow: 0 0 30px var(--green-glow); } 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } }
+.card.mastering .card-inner { animation: masteredPulse 0.6s ease; }
+
+@keyframes edgeFlash { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 0; } }
+.edge-flash { position: fixed; inset: 0; z-index: 300; pointer-events: none; border: 3px solid var(--green); border-radius: 0; opacity: 0; box-shadow: inset 0 0 40px var(--green-glow); }
+.edge-flash.flash { animation: edgeFlash 0.5s ease-out; }
+
+/* Variable Rewards CSS */
+.reward-text { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(0.5) rotate(-10deg); font-family: var(--font-display); font-weight: 900; font-size: 3rem; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 30px var(--orange); z-index: 200; opacity: 0; pointer-events: none; }
+@keyframes rareReward { 0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-10deg); } 20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1) rotate(5deg); } 80% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); } }
+.reward-text.show { animation: rareReward 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+.confetti-container { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 100; }
+.confetti { position: absolute; width: 10px; height: 10px; background: var(--accent); opacity: 0; animation: fall linear forwards; }
+@keyframes fall { 0% { opacity: 1; transform: translateY(-50px) rotate(0deg); } 100% { opacity: 0; transform: translateY(100dvh) rotate(360deg); } }
+
+/* ============================================================
+   5. END CARD (Next Chapter Tease)
+   ============================================================ */
+.end-card { text-align: center; }
+.end-card .card-hook { font-size: 2.5rem !important; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.end-card .card-story { font-size: 1.1rem; margin-top: var(--space-4); }
+.unlock-btn { margin-top: var(--space-6); background: var(--gradient); border: none; padding: var(--space-3) var(--space-6); border-radius: var(--radius-xl); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 10px 30px var(--accent-glow); }
+.unlock-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px var(--accent-glow); }
+
+/* ============================================================
+   6. MISC & RESPONSIVE
+   ============================================================ */
+@keyframes bounceUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.swipe-hint { position: absolute; bottom: calc(var(--safe-bottom) + var(--space-5)); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: var(--space-1); color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.04em; animation: bounceUp 1.8s ease-in-out infinite; pointer-events: none; transition: opacity 0.5s ease; }
+.swipe-hint svg { width: 20px; height: 20px; stroke: var(--text-muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.swipe-hint.hidden { opacity: 0; }
+
+.mood-overlay { position: fixed; inset: 0; z-index: 500; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(4, 4, 12, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: opacity 0.5s ease, visibility 0.5s ease; }
+.mood-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.mood-overlay-brand { font-family: var(--font-display); font-weight: 900; font-size: 2rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: var(--space-2); }
+.mood-overlay-sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: var(--space-8); }
+.mood-options { display: flex; gap: var(--space-4); }
+.mood-btn { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); background: var(--bg-surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: var(--space-6) var(--space-5); width: 105px; cursor: pointer; transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); color: var(--text-primary); font-family: var(--font-body); }
+.mood-btn:hover { transform: translateY(-4px) scale(1.04); border-color: var(--accent-glow); box-shadow: 0 8px 30px var(--accent-glow); }
+.mood-btn .emoji { font-size: 2rem; }
+.mood-btn .label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); }
+
+/* Doubt FAB */
+.doubt-fab { position: fixed; bottom: calc(var(--safe-bottom) + var(--space-6)); right: var(--space-4); z-index: 180; width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); border: none; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px var(--accent-glow); transition: all 0.3s ease; font-family: var(--font-display); }
+.doubt-fab:hover { transform: scale(1.1); box-shadow: 0 6px 30px var(--accent-glow); }
+
+@media (min-width: 600px) {
+  .feed { max-width: 430px; margin: 0 auto; border-left: 1px solid rgba(255,255,255,0.04); border-right: 1px solid rgba(255,255,255,0.04); box-shadow: 0 0 80px rgba(0,0,0,0.5); }
+  .progress-bar, .header { max-width: 430px; left: 50%; transform: translateX(-50%); }
+  .doubt-fab { right: calc(50% - 215px + var(--space-4)); }
+  .doubt-sheet { max-width: 430px; left: 50%; transform: translate(-50%, 100%); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ PROGRESS BAR ═══════ -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ═══════ HEADER ═══════ -->
+<div class="header">
+  <div>
+    <div class="header-title">ConceptFeed</div>
+    <div class="header-chapter">Electrostatics · Ch 01</div>
+  </div>
+  <div class="header-right">
+    <div class="pill streak-pill" id="streakPill" title="Daily Streak">
+      <span class="emoji">🔥</span>
+      <span id="streakCount">0</span>
+    </div>
+    <div class="pill mood-pill" id="moodPill" title="Change mood">
+      <span class="emoji" id="moodPillEmoji">⚡</span>
+      <span id="moodPillLabel">Default</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FEED ═══════ -->
+<div class="feed" id="feed"></div>
+
+<div class="swipe-hint" id="swipeHint">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  <span>Swipe up</span>
+</div>
+<div class="edge-flash" id="edgeFlash"></div>
+<button class="doubt-fab" id="doubtFab" aria-label="Ask a doubt">?</button>
+
+<!-- ═══════ DOUBT BOTTOM SHEET ═══════ -->
+<div class="doubt-overlay" id="doubtOverlay"></div>
+<div class="doubt-sheet" id="doubtSheet">
+  <div class="doubt-sheet-handle"></div>
+  <div class="doubt-sheet-header">
+    <div class="doubt-sheet-title">Ask a Doubt <span class="api-badge">QWEN</span></div>
+    <button class="doubt-close-btn" id="doubtCloseBtn">✕</button>
+  </div>
+  <div class="doubt-chat" id="doubtChat"></div>
+  <div class="doubt-input-area">
+    <input class="doubt-input" id="doubtInput" type="text" placeholder="Ask anything about this concept…" autocomplete="off">
+    <button class="doubt-send-btn" id="doubtSendBtn">Ask</button>
+  </div>
+</div>
+
+<!-- ═══════ MOOD SELECTOR OVERLAY ═══════ -->
+<div class="mood-overlay" id="moodOverlay">
+  <div class="mood-overlay-brand">ConceptFeed</div>
+  <div class="mood-overlay-sub">How do you want to learn today?</div>
+  <div class="mood-options">
+    <button class="mood-btn" data-mood="calm"><span class="emoji">😌</span><span class="label">Calm</span></button>
+    <button class="mood-btn" data-mood="exam"><span class="emoji">🔥</span><span class="label">Exam</span></button>
+    <button class="mood-btn" data-mood="quick"><span class="emoji">🎯</span><span class="label">Quick</span></button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONTENT & DATA FETCHING
+   ============================================================ */
+let concepts = [];
+let currentChapter = localStorage.getItem('cf_chapter') || 'electrostatics';
+
+async function initApp() {
+  await loadChapter(currentChapter, false);
+}
+
+async function loadChapter(chapter, resetIndex = false) {
+  try {
+    if (!DB[chapter]) throw new Error("Chapter not found in DB");
+    concepts = DB[chapter];
+    
+    currentChapter = chapter;
+    localStorage.setItem('cf_chapter', chapter);
+    
+    // Update Header
+    document.querySelector('.header-chapter').textContent = chapter === 'electrostatics' ? 'Electrostatics · Ch 01' : 'Units & Dimensions · Ch 02';
+
+    if (resetIndex) {
+      currentIndex = 0;
+      localStorage.setItem('cf_current_index', 0);
+    } else {
+      currentIndex = parseInt(localStorage.getItem('cf_current_index')) || 0;
+    }
+    
+    buildCards();
+    
+    // Rebind Observer
+    observer.disconnect();
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    // Snap to card
+    setTimeout(() => {
+      const targetCard = document.getElementById(`card-${currentIndex}`);
+      if (targetCard) {
+        feed.style.scrollBehavior = 'auto';
+        targetCard.scrollIntoView();
+        targetCard.classList.add('is-active');
+        updateProgress(currentIndex);
+        setTimeout(() => { feed.style.scrollBehavior = ''; }, 50);
+      }
+    }, 50);
+
+  } catch (err) {
+    console.error("Failed to load chapter", err);
+    feed.innerHTML = '<div style="color:white;text-align:center;margin-top:50vh;">Failed to load data.</div>';
+  }
+}
+
+/* ============================================================
+   STATE PERSISTENCE & STREAKS (localStorage)
+   ============================================================ */
+let currentIndex = 0; // Set via loadChapter
+let currentMood = localStorage.getItem('cf_mood') || null;
+const masteredSet = new Set(JSON.parse(localStorage.getItem('cf_mastered') || '[]'));
+
+// Streak Logic
+let streakCount = parseInt(localStorage.getItem('cf_streak')) || 0;
+let lastActiveDate = localStorage.getItem('cf_last_active');
+const today = new Date().toDateString();
+
+// If last active was > 1 day ago, break streak (simplified logic for prototype)
+if (lastActiveDate) {
+  const diffTime = Math.abs(new Date(today) - new Date(lastActiveDate));
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  if (diffDays > 1) {
+    streakCount = 0;
+    localStorage.setItem('cf_streak', 0);
+  }
+}
+document.getElementById('streakCount').textContent = streakCount;
+if(streakCount > 0 && lastActiveDate === today) {
+  document.getElementById('streakPill').classList.add('active');
+}
+
+function updateStreak() {
+  if (lastActiveDate !== today) {
+    streakCount++;
+    lastActiveDate = today;
+    localStorage.setItem('cf_streak', streakCount);
+    localStorage.setItem('cf_last_active', today);
+    document.getElementById('streakCount').textContent = streakCount;
+    document.getElementById('streakPill').classList.add('active');
+  }
+}
+
+/* ============================================================
+   BUILD FEED
+   ============================================================ */
+const feed = document.getElementById('feed');
+const progressBar = document.getElementById('progressBar');
+
+function buildCards() {
+  feed.innerHTML = '';
+  progressBar.innerHTML = '';
+
+  concepts.forEach((c, i) => {
+    const seg = document.createElement('div');
+    seg.className = 'progress-segment';
+    seg.id = `seg-${i}`;
+    if (masteredSet.has(c.id)) seg.classList.add('mastered');
+    progressBar.appendChild(seg);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `card-${i}`;
+    card.dataset.index = i;
+    if (masteredSet.has(c.id)) card.classList.add('is-mastered');
+
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="mastered-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="card-number">Concept ${String(c.id).padStart(2, '0')} / ${String(concepts.length).padStart(2, '0')}</div>
+        <div class="card-hook">${c.hook.replace(/\n/g, '<br>')}</div>
+        <div class="card-story">${c.story}</div>
+        <div class="card-formula"><div>${c.formula.replace(/\n/g, '<br>')}</div><div style="font-size:0.65em;opacity:0.55;margin-top:6px;font-weight:500">${c.formulaSub}</div></div>
+        <div class="card-analogy"><span class="analogy-icon">💡</span> ${c.analogy}</div>
+        <div class="card-footer"><span class="topic-pill">${c.topic}</span></div>
+      </div>
+    `;
+    feed.appendChild(card);
+  });
+
+  // Zeigarnik Effect - Next Chapter End Card
+  const endCard = document.createElement('div');
+  endCard.className = 'card end-card';
+  endCard.dataset.index = concepts.length;
+  
+  let nextChap = currentChapter === 'electrostatics' ? 'units_dimensions' : 'electrostatics';
+  let nextChapName = currentChapter === 'electrostatics' ? 'Units & Dimensions' : 'Electrostatics';
+
+  endCard.innerHTML = `
+    <div class="card-inner" style="align-items: center; justify-content: center; text-align: center; padding: 40px;">
+      <div style="font-size: 3rem; margin-bottom: 20px;">🔒</div>
+      <div class="card-hook">Next Up:<br>${nextChapName}</div>
+      <div class="card-story">Unlock the next module. Keep the streak alive!</div>
+      <button class="unlock-btn" onclick="loadChapter('${nextChap}', true)">Unlock Chapter</button>
+    </div>
+  `;
+  feed.appendChild(endCard);
+}
+
+buildCards();
+
+/* ============================================================
+   INTERSECTION OBSERVER & PERSISTENCE
+   ============================================================ */
+function updateProgress(index) {
+  document.querySelectorAll('.progress-segment').forEach((seg, i) => {
+    seg.classList.remove('active', 'visited');
+    if (i < index) seg.classList.add('visited');
+    if (i === index) seg.classList.add('active');
+  });
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
+      const card = entry.target;
+      const idx = parseInt(card.dataset.index);
+      
+      document.querySelectorAll('.card.is-active').forEach(c => c.classList.remove('is-active'));
+      card.classList.add('is-active');
+      currentIndex = idx;
+      updateProgress(idx);
+      
+      // Save state
+      localStorage.setItem('cf_current_index', idx);
+
+      // Light haptic feedback on scroll
+      if(navigator.vibrate && idx !== currentIndex) navigator.vibrate(10);
+
+      if (idx > 0) document.getElementById('swipeHint').classList.add('hidden');
+    }
+  });
+}, { root: feed, threshold: [0.55] });
+
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+// Trigger init
+initApp();
+
+/* ============================================================
+   WEB AUDIO API (Dopamine Sounds)
+   ============================================================ */
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx;
+
+function playDing(tier) {
+  if (!audioCtx) audioCtx = new AudioContext();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  
+  const osc = audioCtx.createOscillator();
+  const gainNode = audioCtx.createGain();
+  osc.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+  
+  osc.type = 'sine';
+  if (tier === 'common') {
+    osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
+  } else if (tier === 'rare') {
+    osc.frequency.setValueAtTime(1046.50, audioCtx.currentTime); // C6
+    osc.type = 'triangle';
+  } else {
+    osc.frequency.setValueAtTime(1318.51, audioCtx.currentTime); // E6
+    osc.frequency.exponentialRampToValueAtTime(1567.98, audioCtx.currentTime + 0.1); // Slide to G6
+  }
+  
+  gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.05);
+  gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+  
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.5);
+}
+
+/* ============================================================
+   VARIABLE REWARDS ALGORITHM
+   ============================================================ */
+function triggerConfetti(cardElement) {
+  const container = document.createElement('div');
+  container.className = 'confetti-container';
+  cardElement.appendChild(container);
+  
+  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  for (let i = 0; i < 40; i++) {
+    const conf = document.createElement('div');
+    conf.className = 'confetti';
+    conf.style.left = Math.random() * 100 + '%';
+    conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    conf.style.animationDuration = (Math.random() * 1.5 + 1) + 's';
+    conf.style.animationDelay = (Math.random() * 0.2) + 's';
+    container.appendChild(conf);
+  }
+  setTimeout(() => container.remove(), 2500);
+}
+
+function triggerTextReward(cardElement, text) {
+  const el = document.createElement('div');
+  el.className = 'reward-text';
+  el.textContent = text;
+  cardElement.appendChild(el);
+  
+  // force reflow
+  void el.offsetWidth;
+  el.classList.add('show');
+  
+  setTimeout(() => el.remove(), 1600);
+}
+
+/* ============================================================
+   SWIPE-RIGHT "MASTERED" GESTURE
+   ============================================================ */
+let pointerStartX = 0, pointerStartY = 0, pointerStartTime = 0, isTracking = false;
+
+feed.addEventListener('pointerdown', (e) => {
+  pointerStartX = e.clientX; pointerStartY = e.clientY; pointerStartTime = Date.now(); isTracking = true;
+}, { passive: true });
+feed.addEventListener('pointermove', (e) => {
+  if (!isTracking) return;
+  if (Math.abs(e.clientY - pointerStartY) > Math.abs(e.clientX - pointerStartX) + 10) isTracking = false;
+}, { passive: true });
+feed.addEventListener('pointerup', (e) => {
+  if (!isTracking) return;
+  isTracking = false;
+  const dx = e.clientX - pointerStartX, dy = e.clientY - pointerStartY, dt = Date.now() - pointerStartTime;
+  if (dx > 80 && Math.abs(dx) > Math.abs(dy) * 1.8 && (dx / dt) > 0.25) markMastered(currentIndex);
+}, { passive: true });
+
+function markMastered(index) {
+  if (index >= concepts.length) return; // End card
+  const card = document.getElementById(`card-${index}`);
+  const seg = document.getElementById(`seg-${index}`);
+  const conceptId = concepts[index].id;
+
+  if (masteredSet.has(conceptId)) return; // Already mastered
+
+  masteredSet.add(conceptId);
+  localStorage.setItem('cf_mastered', JSON.stringify([...masteredSet]));
+  updateStreak(); // Gamification logic
+
+  card.classList.add('is-mastered', 'mastering');
+  seg.classList.add('mastered');
+
+  // Dopamine Variable Rewards Algorithm
+  const r = Math.random();
+  if (r > 0.90) {
+    // Epic Tier (10%)
+    playDing('epic');
+    if(navigator.vibrate) navigator.vibrate([20, 30, 20, 30, 40]);
+    triggerTextReward(card, "PERFECT! 🔥");
+    triggerConfetti(card);
+  } else if (r > 0.65) {
+    // Rare Tier (25%)
+    playDing('rare');
+    if(navigator.vibrate) navigator.vibrate([15, 30, 15]);
+    triggerTextReward(card, "ON FIRE!");
+  } else {
+    // Common Tier (65%)
+    playDing('common');
+    if(navigator.vibrate) navigator.vibrate(20);
+  }
+
+  const flash = document.getElementById('edgeFlash');
+  flash.classList.remove('flash');
+  void flash.offsetWidth;
+  flash.classList.add('flash');
+
+  setTimeout(() => card.classList.remove('mastering'), 700);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === 'm') markMastered(currentIndex);
+});
+
+/* ============================================================
+   MOOD SELECTOR (Using localStorage)
+   ============================================================ */
+const moodOverlay = document.getElementById('moodOverlay');
+const moodMeta = { calm: { emoji: '😌', class: 'mood-calm' }, exam: { emoji: '🔥', class: 'mood-exam' }, quick: { emoji: '🎯', class: 'mood-quick' }};
+function applyMood(mood) {
+  currentMood = mood; localStorage.setItem('cf_mood', mood);
+  document.documentElement.classList.remove('mood-calm', 'mood-exam', 'mood-quick');
+  document.documentElement.classList.add(moodMeta[mood].class);
+  document.getElementById('moodPillEmoji').textContent = moodMeta[mood].emoji;
+  document.getElementById('moodPillLabel').textContent = mood.charAt(0).toUpperCase() + mood.slice(1);
+  moodOverlay.classList.add('hidden');
+}
+document.querySelectorAll('.mood-btn').forEach(btn => btn.addEventListener('click', () => applyMood(btn.dataset.mood)));
+document.getElementById('moodPill').addEventListener('click', () => moodOverlay.classList.remove('hidden'));
+if (currentMood) applyMood(currentMood); else moodOverlay.classList.remove('hidden');
+
+/* ============================================================
+   DOUBT LAYER LOGIC (QWEN API INTEGRATION)
+   ============================================================ */
+const doubtFab = document.getElementById('doubtFab');
+const doubtOverlay = document.getElementById('doubtOverlay');
+const doubtSheet = document.getElementById('doubtSheet');
+const doubtCloseBtn = document.getElementById('doubtCloseBtn');
+const doubtChat = document.getElementById('doubtChat');
+const doubtInput = document.getElementById('doubtInput');
+const doubtSendBtn = document.getElementById('doubtSendBtn');
+let qwenApiKey = localStorage.getItem('cf_qwen_key') || '';
+
+doubtFab.addEventListener('click', () => {
+  doubtChat.innerHTML = '';
+  const bubble = document.createElement('div');
+  bubble.className = 'doubt-bubble ai';
+  
+  if (!qwenApiKey) {
+    bubble.innerHTML = `To enable powerful AI reasoning, please paste your <strong>Qwen API Key</strong> below (starts with sk-...). It will be saved securely in your browser.`;
+  } else {
+    bubble.innerHTML = `Ask me anything about <strong>${concepts[currentIndex]?.topic || 'this chapter'}</strong>. I'll keep it strictly under 50 words.`;
+  }
+  
+  doubtChat.appendChild(bubble);
+  doubtOverlay.classList.add('open');
+  doubtSheet.classList.add('open');
+  setTimeout(() => doubtInput.focus(), 300);
+});
+
+function closeDoubt() {
+  doubtOverlay.classList.remove('open');
+  doubtSheet.classList.remove('open');
+}
+doubtCloseBtn.addEventListener('click', closeDoubt);
+doubtOverlay.addEventListener('click', closeDoubt);
+
+async function callQwenAPI(userMessage, currentConcept) {
+  const prompt = `You are an expert JEE physics tutor. The user is currently studying this concept:
+Title: ${currentConcept.hook}
+Theory: ${currentConcept.story}
+Formula: ${currentConcept.formula}
+
+Answer the user's doubt strictly based on this concept.
+RULES:
+1. Under 50 words ideally, absolute maximum 100 words.
+2. Only answer exactly what is asked.
+3. No fluff, no greetings.
+4. Do NOT use markdown headers or lists, keep it plain text.`;
+
+  const directPayload = {
+    model: "qwen-max",
+    messages: [
+      { role: "system", content: prompt },
+      { role: "user", content: userMessage }
+    ],
+    max_tokens: 150
+  };
+
+  const response = await fetch("https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${qwenApiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(directPayload)
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`API ${response.status}: ${errText}`);
+  }
+  const data = await response.json();
+  if (data.error) throw new Error(data.error);
+  if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+    return data.choices[0].message.content;
+  } else {
+    throw new Error("Unexpected response: " + JSON.stringify(data));
+  }
+}
+
+doubtSendBtn.addEventListener('click', async () => {
+  const text = doubtInput.value.trim();
+  if (!text) return;
+
+  // Add User Bubble
+  const uBubble = document.createElement('div');
+  uBubble.className = 'doubt-bubble user';
+  uBubble.textContent = text;
+  doubtChat.appendChild(uBubble);
+  doubtInput.value = '';
+  doubtChat.scrollTop = doubtChat.scrollHeight;
+
+  // Handle API Key Setup
+  if (!qwenApiKey) {
+    if (text.length > 10) {
+      qwenApiKey = text;
+      localStorage.setItem('cf_qwen_key', text);
+      const aiBubble = document.createElement('div');
+      aiBubble.className = 'doubt-bubble ai';
+      aiBubble.textContent = "API Key saved securely! What's your doubt?";
+      doubtChat.appendChild(aiBubble);
+    } else {
+      const aiBubble = document.createElement('div');
+      aiBubble.className = 'doubt-bubble ai';
+      aiBubble.textContent = "Please paste a valid Qwen API Key.";
+      doubtChat.appendChild(aiBubble);
+    }
+    doubtChat.scrollTop = doubtChat.scrollHeight;
+    return;
+  }
+
+  // Add Typing Indicator
+  const typingBubble = document.createElement('div');
+  typingBubble.className = 'doubt-bubble ai typing';
+  typingBubble.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+  doubtChat.appendChild(typingBubble);
+  doubtChat.scrollTop = doubtChat.scrollHeight;
+
+  try {
+    const aiText = await callQwenAPI(text, concepts[currentIndex]);
+    typingBubble.classList.remove('typing');
+    typingBubble.innerHTML = aiText.replace(/\n/g, '<br>');
+  } catch (error) {
+    typingBubble.classList.remove('typing');
+    typingBubble.innerHTML = `<em>Failed: ${error.message}</em><br><br><button onclick="localStorage.removeItem('cf_qwen_key'); window.location.reload();" style="padding: 5px 10px; background: var(--bg-deep); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;">Reset API Key</button>`;
+  }
+  doubtChat.scrollTop = doubtChat.scrollHeight;
+});
+
+doubtInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') doubtSendBtn.click();
+});
+</script>
+</body>
+</html>
