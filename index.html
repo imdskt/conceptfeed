@@ -1508,18 +1508,53 @@ html, body {
 
 <div class="nav-overlay" id="navOverlay">
   <button class="nav-overlay-close" id="navClose">×</button>
-  <div class="nav-title">Jump to Chapter</div>
-  <div class="nav-list">
-    <button class="nav-btn" onclick="jumpToChapter(0)">
-      <div class="nav-btn-title">⚡ Electrostatics</div>
-      <div class="nav-btn-sub">Cards 1 - 46</div>
-    </button>
-    <button class="nav-btn" onclick="jumpToChapter(46)">
-      <div class="nav-btn-title">📏 Units & Dimensions</div>
-      <div class="nav-btn-sub">Cards 47 - 126</div>
-    </button>
+  <div class="nav-title" style="margin-bottom: 20px;">Subjects</div>
+  
+  <div class="nav-list" style="width: 85%; max-width: 340px; gap: 10px;">
+    <!-- Physics (Accordion) -->
+    <div class="nav-accordion">
+      <button class="nav-btn" onclick="document.getElementById('physics-chaps').classList.toggle('hidden')" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div class="nav-btn-title" style="font-size: 1.2rem;">🪐 Physics</div>
+          <div class="nav-btn-sub">2 Chapters Available</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      
+      <div id="physics-chaps" class="hidden" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px; padding-left: 15px; border-left: 2px solid rgba(255,255,255,0.1); margin-left: 10px;">
+        <button class="nav-btn" onclick="jumpToChapter(0)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+          <div class="nav-btn-title" style="font-size: 0.95rem;">⚡ Electrostatics</div>
+          <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 1 - 46</div>
+        </button>
+        <button class="nav-btn" onclick="jumpToChapter(46)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+          <div class="nav-btn-title" style="font-size: 0.95rem;">📏 Units & Dimensions</div>
+          <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 47 - 126</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chemistry -->
+    <div class="nav-btn" style="opacity: 0.5; cursor: default; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div class="nav-btn-title" style="font-size: 1.2rem;">🧪 Chemistry</div>
+        <div class="nav-btn-sub">Coming Soon</div>
+      </div>
+      <div style="font-size: 0.7rem; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 12px;">Locked</div>
+    </div>
+
+    <!-- Math -->
+    <div class="nav-btn" style="opacity: 0.5; cursor: default; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div class="nav-btn-title" style="font-size: 1.2rem;">📐 Mathematics</div>
+        <div class="nav-btn-sub">Coming Soon</div>
+      </div>
+      <div style="font-size: 0.7rem; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 12px;">Locked</div>
+    </div>
   </div>
 </div>
+<style>
+.nav-accordion .hidden { display: none !important; }
+</style>
 
 <script>
 /* ============================================================
@@ -1645,7 +1680,7 @@ function buildCards() {
       <div class="card-inner">
         <div class="mastered-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="card-number">Concept ${String(c.id).padStart(2, '0')} / ${String(concepts.length).padStart(2, '0')}</div>
-        <div class="card-hook">${c.hook.replace(/\n/g, '<br>')}</div>
+        <div class="card-hook">${c.topic}</div>
         <div class="card-story">${c.story}</div>
         <div class="card-formula"><div>${c.formula.replace(/\n/g, '<br>')}</div><div style="font-size:0.65em;opacity:0.55;margin-top:6px;font-weight:500">${c.formulaSub}</div></div>
         <div class="card-analogy"><span class="analogy-icon">💡</span> ${c.analogy}</div>
