@@ -1661,19 +1661,19 @@ html, body {
       </button>
       
       <div id="physics-chaps" class="hidden" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px; padding-left: 15px; border-left: 2px solid rgba(255,255,255,0.1); margin-left: 10px;">
-        <button class="nav-btn" onclick="jumpToChapter(0)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+        <button class="nav-btn chapter-jump-btn" data-chapter="electrostatics" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">⚡ Electrostatics</div>
-          <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 1 - 46</div>
+          <div class="nav-btn-sub chapter-card-range" style="font-size: 0.7rem;"></div>
         </button>
         
-        <button class="nav-btn" onclick="jumpToChapter(46)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+        <button class="nav-btn chapter-jump-btn" data-chapter="gravitation" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">🍎 Gravitation</div>
-          <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 47 - 90</div>
+          <div class="nav-btn-sub chapter-card-range" style="font-size: 0.7rem;"></div>
         </button>
         
-        <button class="nav-btn" onclick="jumpToChapter(90)" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+        <button class="nav-btn chapter-jump-btn" data-chapter="units_dimensions" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">📏 Units & Dimensions</div>
-          <div class="nav-btn-sub" style="font-size: 0.7rem;">Cards 91 - 170</div>
+          <div class="nav-btn-sub chapter-card-range" style="font-size: 0.7rem;"></div>
         </button>
       </div>
     </div>
@@ -1741,17 +1741,30 @@ async function initApp() {
   await loadChapter(currentChapter, false);
 }
 
+// Chapter ordering — single source of truth
+const CHAPTER_ORDER = ['electrostatics', 'gravitation', 'units_dimensions'];
+const CHAPTER_META = {
+  electrostatics:    { title: 'Electrostatics · Ch 01',       icon: '⚡' },
+  gravitation:       { title: 'Gravitation · Ch 08',          icon: '🍎' },
+  units_dimensions:  { title: 'Units & Dimensions · Ch 02',   icon: '📏' }
+};
+
+// Stores the start index of each chapter in the flat concepts array
+let chapterStartIndex = {};
+
 async function loadChapter(chapter, resetIndex = false) {
   try {
-    DB.electrostatics.forEach(c => c.chapterTitle = "Electrostatics · Ch 01");
-    if (DB.gravitation) {
-      DB.gravitation.forEach(c => c.chapterTitle = "Gravitation · Ch 08");
-    }
-    if (DB.units_dimensions) {
-      DB.units_dimensions.forEach(c => c.chapterTitle = "Units & Dimensions · Ch 02");
-    }
-    
-    concepts = [...DB.electrostatics, ...(DB.gravitation || []), ...(DB.units_dimensions || [])];
+    // Build concepts from chapter order
+    concepts = [];
+    chapterStartIndex = {};
+    CHAPTER_ORDER.forEach(key => {
+      if (DB[key] && DB[key].length) {
+        chapterStartIndex[key] = concepts.length;
+        const meta = CHAPTER_META[key] || { title: key };
+        DB[key].forEach(c => c.chapterTitle = meta.title);
+        concepts.push(...DB[key]);
+      }
+    });
     concepts.forEach((c, i) => c.id = i + 1);
     
     currentChapter = chapter;
@@ -1769,7 +1782,12 @@ async function loadChapter(chapter, resetIndex = false) {
       currentIndex = parseInt(localStorage.getItem('cf_current_index')) || 0;
     }
     
+    // Reset caches before rebuilding
+    progressSegmentsCache = null;
+    lastUpdateIndex = -1;
+    
     buildCards();
+    updateNavCardRanges();
     
     // Rebind Observer
     observer.disconnect();
@@ -1791,6 +1809,18 @@ async function loadChapter(chapter, resetIndex = false) {
     console.error("Failed to load chapter", err);
     feed.innerHTML = '<div style="color:white;text-align:center;margin-top:50vh;">Failed to load data.</div>';
   }
+}
+
+// Dynamically update the card-range labels under each nav button
+function updateNavCardRanges() {
+  document.querySelectorAll('.chapter-jump-btn').forEach(btn => {
+    const key = btn.dataset.chapter;
+    const rangeEl = btn.querySelector('.chapter-card-range');
+    if (!rangeEl || chapterStartIndex[key] === undefined || !DB[key]) return;
+    const start = chapterStartIndex[key] + 1;
+    const end = start + DB[key].length - 1;
+    rangeEl.textContent = `Cards ${start} – ${end}`;
+  });
 }
 
 /* ============================================================
@@ -1881,7 +1911,7 @@ function buildCards() {
   feed.appendChild(endCard);
 }
 
-buildCards();
+// buildCards() removed — called inside loadChapter after concepts is populated
 
 /* ============================================================
    INTERSECTION OBSERVER & PERSISTENCE
@@ -2287,15 +2317,25 @@ const navClose = document.getElementById('navClose');
 if (navTrigger) navTrigger.addEventListener('click', () => navOverlay.classList.add('visible'));
 if (navClose) navClose.addEventListener('click', () => navOverlay.classList.remove('visible'));
 
-window.jumpToChapter = function(startIndex) {
+window.jumpToChapter = function(chapterKey) {
   navOverlay.classList.remove('visible');
+  const startIndex = (typeof chapterKey === 'string') ? (chapterStartIndex[chapterKey] || 0) : chapterKey;
   setTimeout(() => {
     const targetCard = document.getElementById('card-' + startIndex);
     if (targetCard) {
-      targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      feed.style.scrollBehavior = 'auto';
+      targetCard.scrollIntoView({ block: 'start' });
+      setTimeout(() => { feed.style.scrollBehavior = ''; }, 50);
     }
   }, 100);
 };
+
+// Bind chapter nav buttons via addEventListener (mobile-safe)
+document.querySelectorAll('.chapter-jump-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    jumpToChapter(btn.dataset.chapter);
+  });
+});
 
 </script>
 </body>
