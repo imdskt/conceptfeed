@@ -515,6 +515,276 @@ const DB = {
     "analogy": "A calculator can square the number 5, but not '5 kilograms' without defining a ratio."
   },
   {
+    "id": 11,
+    "hook": "Can Equations\nLie?",
+    "story": "Every valid physical equation must obey the principle of dimensional homogeneity. Quantities can only be added or subtracted if they possess identical dimensions. Matching dimensions do not guarantee a law is physically correct, but mismatched dimensions prove the equation is impossible.",
+    "formula": "[A] = [B] = [C]\nIf A = B + C",
+    "formulaSub": "All terms connected by addition or subtraction must have identical dimensions.",
+    "topic": "Homogeneity Principle",
+    "analogy": "You can add two distances, but not a distance and a temperature."
+  },
+  {
+    "id": 12,
+    "hook": "Guess Unknown\nDimensions",
+    "story": "Dimensional analysis can determine the dimensions of an unknown physical quantity or constant without knowing its numerical value. Since every term in an equation must have identical dimensions, the missing quantity can be identified uniquely from dimensional balance.",
+    "formula": "[Unknown] = Balance of dimensions",
+    "formulaSub": "Unknown dimensions are obtained by equating dimensions on both sides.",
+    "topic": "Unknown Dimensions",
+    "analogy": "Like solving a Sudoku using the numbers already present."
+  },
+  {
+    "id": 13,
+    "hook": "Find Laws\nWithout Experiments",
+    "story": "If the variables affecting a phenomenon are known, dimensional analysis can predict the mathematical relationship between them. It determines only the powers of variables, while numerical constants must still be obtained experimentally.",
+    "formula": "Q ∝ AᵃBᵇCᶜ",
+    "formulaSub": "a, b and c are found by matching dimensions.",
+    "topic": "Relation Derivation",
+    "analogy": "Knowing recipe ingredients lets you estimate proportions, but not the exact secret spice."
+  },
+  {
+    "id": 14,
+    "hook": "Why Kepler's\nLaw Appears",
+    "story": "Using dimensional analysis, the orbital period of a satellite can be related to gravitational constant, planetary mass and orbital radius. The method correctly predicts the dependence T ∝ √(R³/GM), while the constant 2π comes only from detailed physics.",
+    "formula": "T ∝ √(R³/GM)",
+    "formulaSub": "T = time period, R = orbital radius, G = gravitational constant, M = central mass.",
+    "topic": "Satellite Period",
+    "analogy": "You can estimate travel time from distance and speed before knowing the exact route."
+  },
+  {
+    "id": 15,
+    "hook": "Build New\nUnit Systems",
+    "story": "Fundamental quantities need not always be mass, length and time. Any independent set of quantities can become the base system, and every other quantity can be expressed using their dimensions through dimensional analysis.",
+    "formula": "[Q] = [A]ᵃ[B]ᵇ[C]ᶜ",
+    "formulaSub": "A, B and C represent any chosen fundamental quantities.",
+    "topic": "Alternative Bases",
+    "analogy": "Coordinates can use north-east-up instead of x-y-z but still describe the same location."
+  },
+  {
+    "id": 16,
+    "hook": "Changing Units\nWithout Errors",
+    "story": "A physical quantity never changes during unit conversion. Only its numerical value changes inversely with the chosen unit so that the product of numerical value and unit remains constant.",
+    "formula": "n₁u₁ = n₂u₂\nnu = constant",
+    "formulaSub": "n = numerical value, u = unit.",
+    "topic": "Unit Conversion",
+    "analogy": "₹100 is still the same money whether counted in rupees or paise."
+  },
+  {
+    "id": 17,
+    "hook": "Smaller Units\nBigger Numbers",
+    "story": "When the chosen unit becomes smaller, more of those units are needed to represent the same quantity. Therefore the numerical value increases even though the physical quantity itself remains unchanged.",
+    "formula": "n ∝ 1/u",
+    "formulaSub": "Numerical value is inversely proportional to unit size.",
+    "topic": "Conversion Rule",
+    "analogy": "A road measured in meters has a larger number than when measured in kilometers."
+  },
+  {
+    "id": 18,
+    "hook": "Where Dimensions\nFail",
+    "story": "Dimensional analysis cannot determine numerical constants like 2π, cannot derive equations involving addition, subtraction, logarithms, exponentials or trigonometric functions, and becomes insufficient when too many independent variables are involved.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Limitations",
+    "analogy": "A map shows roads but cannot predict traffic conditions."
+  },
+  {
+    "id": 19,
+    "hook": "What Exactly\nIs An Angle?",
+    "story": "An angle measures the amount of rotation of a line from its initial position. Counterclockwise rotation is defined as positive while clockwise rotation is negative. Angles quantify rotational displacement rather than linear distance.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Angle",
+    "analogy": "Opening a door measures how much it has rotated, not how far it moved."
+  },
+  {
+    "id": 20,
+    "hook": "The Natural\nUnit Of Rotation",
+    "story": "The radian is the SI unit of angle. One radian is formed when the arc length equals the circle's radius, making it a natural measure directly connected to geometry and calculus rather than arbitrary degree divisions.",
+    "formula": "θ = s/r\n1 rad = 180°/π ≈ 57.3°",
+    "formulaSub": "θ = angle, s = arc length, r = radius.",
+    "topic": "Radian",
+    "analogy": "Wrapping a string equal to the radius around a circle creates one radian."
+  },
+  {
+    "id": 21,
+    "hook": "Degrees Or\nRadians?",
+    "story": "Degrees and radians describe the same rotation using different scales. Degrees divide a circle into 360 equal parts, while radians relate rotation directly to the geometry of a circle. Physics prefers radians because they naturally appear in mathematical equations and calculus.",
+    "formula": "180° = π rad\nDegree → Radian: θ × π/180\nRadian → Degree: θ × 180/π",
+    "formulaSub": "θ = angle. Multiply by π/180 to convert degrees to radians and by 180/π for the reverse.",
+    "topic": "Angle Conversion",
+    "analogy": "Like measuring distance in kilometers or miles, only the scale changes."
+  },
+  {
+    "id": 22,
+    "hook": "Six Ratios\nOne Triangle",
+    "story": "Every right triangle creates six trigonometric ratios that relate its sides. These ratios depend only on the angle, not on the triangle's size, making them universal tools for solving geometry, motion and wave problems.",
+    "formula": "sinθ = P/H\ncosθ = B/H\ntanθ = P/B\ncotθ = B/P\nsecθ = H/B\ncosecθ = H/P",
+    "formulaSub": "P = perpendicular, B = base, H = hypotenuse.",
+    "topic": "Trig Ratios",
+    "analogy": "Changing a photo's size doesn't change its proportions."
+  },
+  {
+    "id": 23,
+    "hook": "One Identity\nRules All",
+    "story": "The fundamental trigonometric identities arise directly from the Pythagorean theorem. Since every right triangle obeys this geometric rule, these identities remain valid for every angle and become the basis for simplifying almost every trigonometric expression.",
+    "formula": "sin²θ + cos²θ = 1\n1 + tan²θ = sec²θ\n1 + cot²θ = cosec²θ",
+    "formulaSub": "θ = angle.",
+    "topic": "Trig Identities",
+    "analogy": "Like a master password unlocking many other passwords."
+  },
+  {
+    "id": 24,
+    "hook": "Remember Signs\nWithout Memorizing",
+    "story": "The ASTC rule determines which trigonometric functions are positive in each quadrant. Instead of memorizing every value separately, knowing the quadrant immediately tells the sign of sine, cosine and tangent for any angle.",
+    "formula": "I: All\nII: Sin\nIII: Tan\nIV: Cos",
+    "formulaSub": "Each quadrant specifies which trigonometric functions remain positive.",
+    "topic": "ASTC Rule",
+    "analogy": "Traffic lights tell you instantly what action is allowed."
+  },
+  {
+    "id": 25,
+    "hook": "Any Angle\nMade Easy",
+    "story": "Reduction formulas convert large, negative or shifted angles into equivalent acute angles whose values are already known. Periodicity, symmetry and quadrant rules together allow rapid evaluation of trigonometric functions without fresh calculations.",
+    "formula": "sin(2nπ+θ)=sinθ\ncos(2nπ+θ)=cosθ\ntan(2nπ+θ)=tanθ",
+    "formulaSub": "n = integer, θ = reference angle.",
+    "topic": "Reduction Formulae",
+    "analogy": "Finding today's weekday by repeating a seven-day cycle."
+  },
+  {
+    "id": 26,
+    "hook": "Mirror Angles\nReveal Values",
+    "story": "Angles related by 90°, 180°, 270° and 360° transform trigonometric functions into either themselves or their co-functions. Only the sign changes according to the quadrant, allowing quick evaluation of many standard angles.",
+    "formula": "sin(90°−θ)=cosθ\ncos(90°−θ)=sinθ\nsin(180°−θ)=sinθ\ncos(180°−θ)=−cosθ",
+    "formulaSub": "θ = reference angle.",
+    "topic": "Angle Transformations",
+    "analogy": "Looking in different mirrors changes orientation but preserves identity."
+  },
+  {
+    "id": 27,
+    "hook": "Negative Angles\nNo Problem",
+    "story": "Clockwise rotation is represented by negative angles. Sine and tangent are odd functions, changing sign for negative angles, while cosine is an even function and remains unchanged. These symmetry properties simplify many calculations.",
+    "formula": "sin(−θ)=−sinθ\ncos(−θ)=cosθ\ntan(−θ)=−tanθ",
+    "formulaSub": "θ = angle.",
+    "topic": "Negative Angles",
+    "analogy": "Walking backward reverses direction but not the distance from home."
+  },
+  {
+    "id": 28,
+    "hook": "Powerful Formulae\nEvery JEE Needs",
+    "story": "Angle addition, subtraction, double-angle and half-angle identities connect different trigonometric expressions. They transform complicated equations into solvable forms and appear repeatedly in mechanics, waves, oscillations and coordinate geometry.",
+    "formula": "sin(A+B)=sinAcosB+cosAsinB\ncos(A+B)=cosAcosB−sinAsinB\ntan(A+B)=(tanA+tanB)/(1−tanAtanB)\nsin2A=2sinAcosA",
+    "formulaSub": "A and B are angles.",
+    "topic": "Trig Formulae",
+    "analogy": "Like LEGO connectors joining simple pieces into complex structures."
+  },
+  {
+    "id": 29,
+    "hook": "Tiny Angles\nHuge Shortcut",
+    "story": "For very small angles measured in radians, sine and tangent become almost equal to the angle itself while cosine becomes nearly one. This approximation dramatically simplifies equations in oscillations, optics and rotational motion.",
+    "formula": "sinθ ≈ θ\ncosθ ≈ 1\ntanθ ≈ θ\nθ less than about 5°",
+    "formulaSub": "θ must be expressed in radians.",
+    "topic": "Small Angle",
+    "analogy": "A tiny curve looks almost like a straight line."
+  },
+  {
+    "id": 30,
+    "hook": "Big Powers\nBecome Easy",
+    "story": "When a variable is extremely small, higher powers contribute negligibly compared to the first-order term. Binomial approximation replaces complicated expressions with simple linear ones, making difficult calculations manageable without significant error.",
+    "formula": "(1+x)ⁿ ≈ 1+nx",
+    "formulaSub": "Valid when |x| is much smaller than 1.",
+    "topic": "Binomial Approximation",
+    "analogy": "Ignoring a few drops while measuring a full bucket of water."
+  },
+  {
+    "id": 31,
+    "hook": "Magnitude Alone\nOr Direction Too?",
+    "story": "Physical quantities are classified by the information needed to describe them completely. If magnitude alone uniquely specifies the quantity, it is a scalar. If direction and vector algebra are also essential, it becomes a vector. This distinction determines how quantities combine in physics.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Scalar vs Vector",
+    "analogy": "Knowing a package weighs 5 kg is different from knowing it moves north at 5 m/s."
+  },
+  {
+    "id": 32,
+    "hook": "Scalars Need\nOnly Numbers",
+    "story": "A scalar quantity is completely described by its magnitude without requiring direction. Scalars follow ordinary algebraic operations because only numerical values are involved. Distance, mass, time, temperature and energy are common scalar quantities.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Scalar Quantity",
+    "analogy": "Your phone battery being 80% needs no direction to make sense."
+  },
+  {
+    "id": 33,
+    "hook": "When Direction\nBecomes Essential",
+    "story": "A vector requires magnitude, direction and obedience to vector algebra. Simply having a direction is not enough. The quantity must satisfy vector addition rules such as commutativity and associativity to qualify as a true vector.",
+    "formula": "A⃗ + B⃗ = B⃗ + A⃗",
+    "formulaSub": "Vectors obey vector algebra, unlike ordinary directional quantities.",
+    "topic": "Vector Quantity",
+    "analogy": "Giving navigation requires both distance and direction, not just one."
+  },
+  {
+    "id": 34,
+    "hook": "Direction Alone\nIsn't Enough",
+    "story": "Some physical quantities possess direction but are not vectors because they do not obey vector algebra. Electric current has an assigned direction of flow, yet it cannot be added using vector rules and therefore is treated as a scalar quantity.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Direction vs Vector",
+    "analogy": "A queue has a front direction, but two queues cannot be added like arrows."
+  },
+  {
+    "id": 35,
+    "hook": "How Vectors\nAre Drawn",
+    "story": "A vector is represented by a directed line segment. Its length is proportional to its magnitude while the arrowhead indicates its direction. This graphical representation allows geometric operations like addition and subtraction.",
+    "formula": "|A⃗| = A",
+    "formulaSub": "A is the magnitude of vector A⃗.",
+    "topic": "Vector Representation",
+    "analogy": "A navigation arrow on Google Maps shows both distance and direction."
+  },
+  {
+    "id": 36,
+    "hook": "Move It\nStill Same",
+    "story": "A vector remains unchanged when translated parallel to itself because neither its magnitude nor direction changes. Only its position changes, which does not alter the physical quantity represented by the vector.",
+    "formula": "A⃗ = B⃗ if translated parallel",
+    "formulaSub": "Equal vectors remain identical after parallel translation.",
+    "topic": "Vector Translation",
+    "analogy": "Sliding an arrow sticker across paper doesn't change the arrow."
+  },
+  {
+    "id": 37,
+    "hook": "Rotate It\nNow Different",
+    "story": "Rotating a vector changes its direction and therefore changes the vector itself unless the rotation is an exact multiple of 360 degrees. Direction is an inseparable part of every vector quantity.",
+    "formula": "Rotation ≠ 360° × n",
+    "formulaSub": "n is an integer. Only full rotations preserve the vector.",
+    "topic": "Vector Rotation",
+    "analogy": "Turning a flashlight changes where it points even if brightness stays the same."
+  },
+  {
+    "id": 38,
+    "hook": "Changing Frames\nChanges Nothing",
+    "story": "Translating or rotating the coordinate system does not alter the actual vector. Only its components relative to the chosen axes change, while the physical vector remains exactly the same.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Reference Frame",
+    "analogy": "A mountain stays fixed even if you rotate the map."
+  },
+  {
+    "id": 39,
+    "hook": "Which Angle\nCounts?",
+    "story": "The angle between two vectors is always defined as the smaller angle obtained after placing them tail-to-tail or head-to-head through parallel translation. This angle always lies between 0 and π radians.",
+    "formula": "0 ≤ θ ≤ π",
+    "formulaSub": "θ is the smaller angle between two vectors.",
+    "topic": "Vector Angle",
+    "analogy": "Two roads meeting at a junction always have one smaller turning angle."
+  },
+  {
+    "id": 40,
+    "hook": "Every Vector\nHas A Family",
+    "story": "Vectors are classified according to magnitude, direction and position. Parallel, antiparallel, equal, opposite, co-initial, collinear, coplanar and concurrent vectors describe different geometric relationships that simplify vector analysis.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Vector Types",
+    "analogy": "People can be classmates, teammates or siblings depending on their relationships."
+  },
+  {
     "id": 41,
     "hook": "Same Direction\nSame Team",
     "story": "Parallel vectors point in the same direction regardless of where they are located. Their relative positions do not matter because vectors can be translated parallel to themselves. The angle between parallel vectors is always zero degrees.",
@@ -693,6 +963,186 @@ const DB = {
     "formulaSub": "Both graphical methods produce the same resultant.",
     "topic": "Addition Methods",
     "analogy": "Two different GPS routes reaching the same destination."
+  },
+  {
+    "id": 61,
+    "hook": "Order Doesn't\nMatter",
+    "story": "Vector addition is commutative, meaning changing the order of addition never changes the resultant. Since vectors can be translated parallel to themselves without changing their identity, both graphical construction and algebra always produce the same final vector.",
+    "formula": "A⃗ + B⃗ = B⃗ + A⃗",
+    "formulaSub": "The resultant is independent of the order of addition.",
+    "topic": "Commutative Law",
+    "analogy": "Walking east then north reaches the same destination as north then east."
+  },
+  {
+    "id": 62,
+    "hook": "Group Them\nAny Way",
+    "story": "Vector addition is associative, allowing vectors to be grouped in any order without affecting the final resultant. This property makes addition of many vectors straightforward because intermediate groupings never change the answer.",
+    "formula": "A⃗ + (B⃗ + C⃗) = (A⃗ + B⃗) + C⃗",
+    "formulaSub": "Grouping vectors differently does not change the resultant.",
+    "topic": "Associative Law",
+    "analogy": "Packing books into boxes in different groups still gives the same total collection."
+  },
+  {
+    "id": 63,
+    "hook": "Can Every\nVector Add?",
+    "story": "Only vectors representing the same physical quantity can be added. Adding displacement to force or velocity to acceleration has no physical meaning because they describe entirely different phenomena despite both being vectors.",
+    "formula": "—",
+    "formulaSub": "No formula for this concept",
+    "topic": "Compatible Vectors",
+    "analogy": "You can add two distances but not a distance and a temperature."
+  },
+  {
+    "id": 64,
+    "hook": "When Resultant\nBecomes Largest",
+    "story": "The resultant reaches its greatest possible magnitude when both vectors act in exactly the same direction. Every part of one vector contributes fully to the other, producing complete constructive addition.",
+    "formula": "Rmax = A + B",
+    "formulaSub": "Occurs when θ = 0°.",
+    "topic": "Maximum Resultant",
+    "analogy": "Two people pushing a car from the same side produce maximum combined force."
+  },
+  {
+    "id": 65,
+    "hook": "When Resultant\nBecomes Smallest",
+    "story": "The minimum resultant occurs when vectors point in opposite directions. One vector cancels part or all of the other, leaving only the difference between their magnitudes as the final resultant.",
+    "formula": "Rmin = |A − B|",
+    "formulaSub": "Occurs when θ = 180°.",
+    "topic": "Minimum Resultant",
+    "analogy": "A tug-of-war ends with only the stronger team's extra pull remaining."
+  },
+  {
+    "id": 66,
+    "hook": "Equal Vectors\nSpecial Rule",
+    "story": "If two vectors have equal magnitudes, their resultant always lies along the angle bisector between them. Equal contributions from both sides naturally pull the resultant exactly halfway between their directions.",
+    "formula": "R = 2a cos(θ/2)",
+    "formulaSub": "a = magnitude of each vector, θ = angle between them.",
+    "topic": "Equal Vector Sum",
+    "analogy": "Two equally strong friends pulling a rope make it point exactly between them."
+  },
+  {
+    "id": 67,
+    "hook": "The Famous\n120° Trick",
+    "story": "When two vectors have equal magnitude and are separated by 120 degrees, the magnitude of their resultant becomes equal to either individual vector. This special JEE result appears frequently in mechanics and geometry problems.",
+    "formula": "If A = B = a and θ = 120°, then R = a",
+    "formulaSub": "a = magnitude of each vector.",
+    "topic": "120 Degree Case",
+    "analogy": "Two balanced pulls leave a combined pull equal to one original pull."
+  },
+  {
+    "id": 68,
+    "hook": "More Than\nTwo Vectors",
+    "story": "The polygon law extends vector addition to any number of vectors. When vectors are drawn head-to-tail in sequence, the resultant is represented by the closing side joining the starting point to the final endpoint.",
+    "formula": "R⃗ = A⃗ + B⃗ + C⃗ + D⃗ + ...",
+    "formulaSub": "Resultant equals the closing side of the polygon.",
+    "topic": "Polygon Law",
+    "analogy": "Completing several connected road trips gives one overall displacement."
+  },
+  {
+    "id": 69,
+    "hook": "Closed Shape\nZero Result",
+    "story": "If vectors form a completely closed polygon, the final point coincides with the starting point. Since there is no net displacement, the vector sum becomes the zero vector regardless of the number of sides.",
+    "formula": "A⃗ + B⃗ + C⃗ + ... = 0⃗",
+    "formulaSub": "Applicable when vectors form a closed polygon.",
+    "topic": "Closed Polygon",
+    "analogy": "Walking around a park and returning to the entrance gives zero displacement."
+  },
+  {
+    "id": 70,
+    "hook": "Perfect Balance\nIn A Circle",
+    "story": "If n equal coplanar vectors are equally spaced in direction, their symmetry causes every vector to be balanced by others around it. The resultant therefore becomes exactly zero without performing any calculations.",
+    "formula": "R⃗ = 0⃗",
+    "formulaSub": "Valid for equally spaced coplanar vectors of equal magnitude.",
+    "topic": "Symmetric Vectors",
+    "analogy": "People pulling equally from all directions keep the object perfectly still."
+  },
+  {
+    "id": 71,
+    "hook": "Subtract By\nAdding",
+    "story": "Vector subtraction is defined by adding the negative of a vector. Instead of inventing a new operation, physics converts subtraction into ordinary vector addition after reversing the direction of the vector being subtracted.",
+    "formula": "A⃗ − B⃗ = A⃗ + (−B⃗)",
+    "formulaSub": "−B⃗ has the same magnitude as B⃗ but opposite direction.",
+    "topic": "Vector Subtraction",
+    "analogy": "Walking 5 m west is the same as adding a negative 5 m east."
+  },
+  {
+    "id": 72,
+    "hook": "Reverse Then\nAdd",
+    "story": "To subtract two vectors graphically, first reverse the direction of the second vector without changing its magnitude. Then apply the triangle law of vector addition. This converts subtraction into a familiar geometric construction.",
+    "formula": "A⃗ − B⃗ = A⃗ + (−B⃗)",
+    "formulaSub": "Reverse B⃗ first, then use the triangle law.",
+    "topic": "Subtraction Method",
+    "analogy": "Before retracing someone's path, you first turn around."
+  },
+  {
+    "id": 73,
+    "hook": "Length Of\nDifference",
+    "story": "The magnitude of the difference between two vectors depends on both their magnitudes and the angle separating them. The cosine rule gives the exact value by treating subtraction as addition with the opposite vector.",
+    "formula": "|A⃗ − B⃗| = √(A² + B² − 2ABcosθ)",
+    "formulaSub": "A and B are magnitudes, θ is the angle between the vectors.",
+    "topic": "Difference Magnitude",
+    "analogy": "The distance between two moving cars depends on both speed and direction."
+  },
+  {
+    "id": 74,
+    "hook": "Where Does\nIt Point?",
+    "story": "The direction of the vector difference depends on the relative strengths of the vectors and the angle between them. The tangent relation determines the angle made by the resultant difference with the first vector.",
+    "formula": "tanα = (Bsinθ)/(A − Bcosθ)",
+    "formulaSub": "α = angle of A⃗ − B⃗ measured from A⃗.",
+    "topic": "Difference Direction",
+    "analogy": "The final direction after canceling two pushes depends on which push dominates."
+  },
+  {
+    "id": 75,
+    "hook": "Order Suddenly\nMatters",
+    "story": "Unlike addition, vector subtraction is not commutative. Reversing the order changes both the magnitude and direction of the answer because each operation subtracts a different vector from the other.",
+    "formula": "A⃗ − B⃗ ≠ B⃗ − A⃗",
+    "formulaSub": "Changing the order changes the resulting vector.",
+    "topic": "Non-Commutative",
+    "analogy": "Owing ₹500 to someone is very different from them owing ₹500 to you."
+  },
+  {
+    "id": 76,
+    "hook": "Grouping Also\nFails",
+    "story": "Vector subtraction is not associative because each subtraction depends on the order in which vectors are removed. Different groupings produce different intermediate vectors and therefore different final answers.",
+    "formula": "(A⃗ − B⃗) − C⃗ ≠ A⃗ − (B⃗ − C⃗)",
+    "formulaSub": "Changing the grouping changes the resultant vector.",
+    "topic": "Non-Associative",
+    "analogy": "Removing players from different teams in different orders changes the final lineup."
+  },
+  {
+    "id": 77,
+    "hook": "Equal Vectors\nSpecial Difference",
+    "story": "When two vectors have equal magnitude, the magnitude of their difference depends only on the angle between them. The result simplifies into a compact expression involving the sine of half the included angle.",
+    "formula": "|A⃗ − B⃗| = 2a sin(θ/2)",
+    "formulaSub": "a = magnitude of each vector, θ = angle between them.",
+    "topic": "Equal Vector Difference",
+    "analogy": "Two equally long ropes pulled apart separate according to the angle between them."
+  },
+  {
+    "id": 78,
+    "hook": "The Famous\n60° Trick",
+    "story": "If two equal vectors are inclined at 60 degrees, their difference has the same magnitude as either vector. This special geometric result frequently appears in JEE vector problems and simplifies calculations instantly.",
+    "formula": "If A = B = a and θ = 60°, then |A⃗ − B⃗| = a",
+    "formulaSub": "a = magnitude of each vector.",
+    "topic": "60 Degree Case",
+    "analogy": "Two equal pulls at just the right angle leave one original pull as the difference."
+  },
+  {
+    "id": 79,
+    "hook": "What Does\nChange Mean?",
+    "story": "The change in any vector quantity is defined as the final vector minus the initial vector. This definition is fundamental in physics because displacement, change in velocity and many other concepts are based on vector differences.",
+    "formula": "ΔV⃗ = V⃗final − V⃗initial",
+    "formulaSub": "ΔV⃗ = change in vector quantity.",
+    "topic": "Change In Vector",
+    "analogy": "Your journey is determined by where you finished minus where you started."
+  },
+  {
+    "id": 80,
+    "hook": "One Shape\nTwo Diagonals",
+    "story": "For two vectors drawn as adjacent sides of a parallelogram, one diagonal represents their sum while the other represents their difference. The geometry naturally visualizes both addition and subtraction in a single figure.",
+    "formula": "Diagonal₁ = A⃗ + B⃗\nDiagonal₂ = A⃗ − B⃗",
+    "formulaSub": "The two diagonals correspond to vector sum and vector difference.",
+    "topic": "Parallelogram Diagonals",
+    "analogy": "A crossroads offers two different shortcuts from the same starting point."
   }
 ]
 };
