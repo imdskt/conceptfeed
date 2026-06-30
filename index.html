@@ -1744,11 +1744,14 @@ async function initApp() {
 async function loadChapter(chapter, resetIndex = false) {
   try {
     DB.electrostatics.forEach(c => c.chapterTitle = "Electrostatics · Ch 01");
+    if (DB.gravitation) {
+      DB.gravitation.forEach(c => c.chapterTitle = "Gravitation · Ch 08");
+    }
     if (DB.units_dimensions) {
       DB.units_dimensions.forEach(c => c.chapterTitle = "Units & Dimensions · Ch 02");
     }
     
-    concepts = [...DB.electrostatics, ...(DB.units_dimensions || [])];
+    concepts = [...DB.electrostatics, ...(DB.gravitation || []), ...(DB.units_dimensions || [])];
     concepts.forEach((c, i) => c.id = i + 1);
     
     currentChapter = chapter;
