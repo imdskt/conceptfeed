@@ -1011,14 +1011,21 @@ async function initApp() {
 
 async function loadChapter(chapter, resetIndex = false) {
   try {
-    if (!DB[chapter]) throw new Error("Chapter not found in DB");
-    concepts = DB[chapter];
+    DB.electrostatics.forEach(c => c.chapterTitle = "Electrostatics · Ch 01");
+    if (DB.units_dimensions) {
+      DB.units_dimensions.forEach(c => c.chapterTitle = "Units & Dimensions · Ch 02");
+    }
+    
+    concepts = [...DB.electrostatics, ...(DB.units_dimensions || [])];
+    concepts.forEach((c, i) => c.id = i + 1);
     
     currentChapter = chapter;
     localStorage.setItem('cf_chapter', chapter);
     
-    // Update Header
-    document.querySelector('.header-chapter').textContent = chapter === 'electrostatics' ? 'Electrostatics · Ch 01' : 'Units & Dimensions · Ch 02';
+    // Update Header initially
+    if (concepts[0]) {
+      document.querySelector('.header-chapter').textContent = concepts[0].chapterTitle;
+    }
 
     if (resetIndex) {
       currentIndex = 0;
@@ -1125,20 +1132,15 @@ function buildCards() {
     feed.appendChild(card);
   });
 
-  // Zeigarnik Effect - Next Chapter End Card
+  // Seamless Feed End Card
   const endCard = document.createElement('div');
   endCard.className = 'card end-card';
   endCard.dataset.index = concepts.length;
-  
-  let nextChap = currentChapter === 'electrostatics' ? 'units_dimensions' : 'electrostatics';
-  let nextChapName = currentChapter === 'electrostatics' ? 'Units & Dimensions' : 'Electrostatics';
-
   endCard.innerHTML = `
     <div class="card-inner" style="align-items: center; justify-content: center; text-align: center; padding: 40px;">
-      <div style="font-size: 3rem; margin-bottom: 20px;">🔒</div>
-      <div class="card-hook">Next Up:<br>${nextChapName}</div>
-      <div class="card-story">Unlock the next module. Keep the streak alive!</div>
-      <button class="unlock-btn" onclick="loadChapter('${nextChap}', true)">Unlock Chapter</button>
+      <div style="font-size: 3rem; margin-bottom: 20px;">🎉</div>
+      <div class="card-hook">All Caught Up!</div>
+      <div class="card-story">You've reached the end of the available chapters. Keep your streak alive and come back for more!</div>
     </div>
   `;
   feed.appendChild(endCard);
