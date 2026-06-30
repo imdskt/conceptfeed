@@ -897,9 +897,49 @@ html, body {
   .doubt-fab { right: calc(50% - 215px + var(--space-4)); }
   .doubt-sheet { max-width: 430px; left: 50%; transform: translate(-50%, 100%); }
 }
+
+/* ============================================================
+   8. PASSWORD LOCK SCREEN
+   ============================================================ */
+.lock-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: radial-gradient(circle at center, #0f0f23 0%, #05050a 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.lock-overlay.hidden {
+  opacity: 0; visibility: hidden; pointer-events: none;
+}
+.lock-card {
+  background: rgba(14, 14, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  padding: 40px; border-radius: 24px; width: 90%; max-width: 360px;
+  text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.lock-icon { font-size: 3rem; margin-bottom: var(--space-3); }
+.lock-title { font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: var(--space-1); }
+.lock-subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: var(--space-6); }
+.lock-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 12px 16px; color: var(--text-primary); text-align: center; font-size: 1rem; outline: none; margin-bottom: var(--space-4); transition: 0.3s; }
+.lock-input:focus { border-color: var(--accent); background: rgba(255, 255, 255, 0.08); }
+.lock-btn { width: 100%; background: var(--gradient); border: none; border-radius: 12px; padding: 12px; color: white; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 25px var(--accent-glow); }
+.lock-btn:active { transform: scale(0.98); }
+.lock-error { color: var(--orange); font-size: 0.8rem; margin-top: var(--space-3); display: none; }
 </style>
 </head>
 <body>
+
+<!-- ═══════ PASSWORD LOCK SCREEN ═══════ -->
+<div class="lock-overlay" id="lockOverlay">
+  <div class="lock-card">
+    <div class="lock-icon">🔒</div>
+    <div class="lock-title">ConceptFeed</div>
+    <div class="lock-subtitle">Enter password to study</div>
+    <input type="password" class="lock-input" id="lockInput" placeholder="Password">
+    <button class="lock-btn" id="lockUnlockBtn">Unlock</button>
+    <div class="lock-error" id="lockError">Incorrect password</div>
+  </div>
+</div>
 
 <!-- ═══════ PROGRESS BAR ═══════ -->
 <div class="progress-bar" id="progressBar"></div>
@@ -1426,6 +1466,46 @@ doubtSendBtn.addEventListener('click', async () => {
 doubtInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') doubtSendBtn.click();
 });
+
+/* ============================================================
+   PASSWORD PROTECTION LOGIC (SHA-256 SECURED)
+   ============================================================ */
+const targetHash = "f0e4c2f76c58916ec258f246851bea5f8840406e75db7fc9b5c2a129d20c5d79"; // SHA-256 of "study"
+
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const lockOverlay = document.getElementById('lockOverlay');
+const lockInput = document.getElementById('lockInput');
+const lockUnlockBtn = document.getElementById('lockUnlockBtn');
+const lockError = document.getElementById('lockError');
+
+async function checkUnlock() {
+  const inputVal = lockInput.value;
+  const hash = await sha256(inputVal);
+  if (hash === targetHash) {
+    localStorage.setItem('cf_unlocked', 'true');
+    lockOverlay.classList.add('hidden');
+  } else {
+    lockError.style.display = 'block';
+    lockInput.value = '';
+    setTimeout(() => { lockError.style.display = 'none'; }, 2000);
+  }
+}
+
+if (localStorage.getItem('cf_unlocked') === 'true') {
+  lockOverlay.classList.add('hidden');
+} else {
+  lockOverlay.classList.remove('hidden');
+  setTimeout(() => lockInput.focus(), 300);
+}
+
+lockUnlockBtn.addEventListener('click', checkUnlock);
+lockInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') checkUnlock(); });
 </script>
 </body>
 </html>
