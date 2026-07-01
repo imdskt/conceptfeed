@@ -7,6 +7,323 @@
 <meta name="description" content="Swipe through bite-sized JEE Physics concepts like Reels. Electrostatics chapter.">
 <script>
 const DB = {
+  "semiconductors": [
+  {
+    "id": 1,
+    "hook": "Energy Bands\nExplained",
+    "story": "In isolated atoms, electrons occupy discrete energy levels. But in a solid lattice, interactions between neighboring atoms cause these levels to blur and merge, creating continuous bands of energy. The outermost electrons reside in the valence band, while free electrons that can conduct electricity move to the conduction band.",
+    "formula": "",
+    "formulaSub": "",
+    "analogy": "Like rungs on a ladder blurring together, individual electron orbits merge into energy highways.",
+    "topic": "Energy Bands in Solids"
+  },
+  {
+    "id": 2,
+    "hook": "Forbidden\nEnergy Gap",
+    "story": "Between the valence and conduction bands lies a 'no man's land' called the forbidden energy gap. Electrons cannot exist here. To become conductive, an electron must gain enough energy to jump entirely across this gap. The size of this gap determines whether a material is a conductor, insulator, or semiconductor.",
+    "formula": "&Delta;E<sub>g</sub> = (CB)<sub>min</sub> - (VB)<sub>max</sub>",
+    "formulaSub": "&Delta;E_g: Forbidden Energy Gap, CB: Conduction Band, VB: Valence Band",
+    "analogy": "It's like jumping across a river; you can't land in the middle, you have to make it all the way to the other side.",
+    "topic": "Energy Bands in Solids"
+  },
+  {
+    "id": 3,
+    "hook": "Heat Drives\nConduction",
+    "story": "At absolute zero temperature, a semiconductor is a perfect insulator because all its electrons are stuck in the valence band. But as the temperature rises, thermal energy excites some electrons, giving them enough power to jump the forbidden gap into the conduction band. This thermal generation allows the material to conduct electricity.",
+    "formula": "n = AT<sup>3/2</sup>e<sup>-E<sub>g</sub>/2kT</sup>",
+    "formulaSub": "n: number of electrons reaching CB, k: Boltzmann constant, T: absolute temperature",
+    "analogy": "Like heating popcorn kernels, thermal energy gives electrons the pop they need to jump out of their shell.",
+    "topic": "Thermal Effects on Semiconductors"
+  },
+  {
+    "id": 4,
+    "hook": "Birth Of\nHoles",
+    "story": "When an electron gains enough thermal energy to break free from a covalent bond, it leaves behind an empty space called a 'hole'. This hole acts as a virtual positive charge in the crystal lattice. The free electron and the newly created hole are always generated together, forming an electron-hole pair.",
+    "formula": "n<sub>e</sub> = n<sub>h</sub> = n<sub>i</sub>",
+    "formulaSub": "n_e: free electron concentration, n_h: hole concentration, n_i: intrinsic carrier concentration",
+    "analogy": "When a car leaves a crowded parking lot, the empty space left behind can 'move' as other cars shift to fill it.",
+    "topic": "Charge Carriers"
+  },
+  {
+    "id": 5,
+    "hook": "Virtual\nPositive Charge",
+    "story": "A 'hole' is simply the absence of a valence electron, but it behaves exactly like a positively charged particle. As neighboring electrons jump into the vacancy, the hole effectively moves in the opposite direction. Although holes have a higher effective mass and lower mobility than free electrons, they are crucial for semiconductor current.",
+    "formula": "q<sub>h</sub> = +e",
+    "formulaSub": "q_h: effective charge of a hole, e: elementary charge",
+    "analogy": "Like a bubble rising in a liquid, a hole is just the absence of matter moving against the flow.",
+    "topic": "Charge Carriers"
+  },
+  {
+    "id": 6,
+    "hook": "Drift And\nMobility",
+    "story": "When an electric field is applied, both free electrons and holes start to drift, contributing to the total electric current. The 'mobility' measures how easily these charge carriers move through the semiconductor lattice. The overall conductivity depends on both the concentration and mobility of these electrons and holes.",
+    "formula": "&sigma; = e(n<sub>e</sub>&mu;<sub>e</sub> + n<sub>h</sub>&mu;<sub>h</sub>)",
+    "formulaSub": "&sigma;: conductivity, n_e, n_h: carrier concentrations, &mu;_e, &mu;_h: carrier mobilities",
+    "analogy": "Mobility is like the speed limit on a highway; conductivity is the total amount of traffic flowing through.",
+    "topic": "Semiconductor Conductivity"
+  },
+  {
+    "id": 7,
+    "hook": "Doping Enhances\nPerformance",
+    "story": "Pure, intrinsic semiconductors don't conduct well enough for practical devices. By 'doping'—deliberately adding specific impurity atoms in parts per million—we can drastically increase the number of either free electrons or holes. This transforms the material into an extrinsic semiconductor with highly controllable electrical conductivity.",
+    "formula": "",
+    "formulaSub": "",
+    "analogy": "It's like adding a pinch of salt to pure water; a tiny amount completely changes its electrical properties.",
+    "topic": "Extrinsic Semiconductors"
+  },
+  {
+    "id": 8,
+    "hook": "N-Type:\nExtra Electrons",
+    "story": "Doping a semiconductor with a pentavalent impurity introduces atoms with five valence electrons. Four form bonds, but the fifth is loosely bound and easily becomes a free electron. These are called donor impurities, creating an N-type material where free electrons are the majority charge carriers.",
+    "formula": "n<sub>e</sub> &gt;&gt; n<sub>h</sub>",
+    "formulaSub": "n_e: electron concentration, n_h: hole concentration",
+    "analogy": "Like bringing five players to a four-player game, the extra player is free to roam around the field.",
+    "topic": "Extrinsic Semiconductors"
+  },
+  {
+    "id": 9,
+    "hook": "P-Type:\nExtra Holes",
+    "story": "Doping with a trivalent impurity introduces atoms with only three valence electrons. To complete their bonding, they steal an electron from a neighboring silicon atom, creating a positive 'hole'. These acceptor impurities form a P-type material where holes act as the majority charge carriers.",
+    "formula": "n<sub>h</sub> &gt;&gt; n<sub>e</sub>",
+    "formulaSub": "n_h: hole concentration, n_e: electron concentration",
+    "analogy": "Like a puzzle missing a piece, the empty spot (hole) dictates how the other pieces can slide around.",
+    "topic": "Extrinsic Semiconductors"
+  },
+  {
+    "id": 10,
+    "hook": "Mass Action\nLaw",
+    "story": "In a semiconductor under thermal equilibrium, the product of free electron concentration and hole concentration remains constant, regardless of how much donor or acceptor impurity is added. If you dope the material to increase electrons, the number of holes naturally decreases to maintain this fundamental balance.",
+    "formula": "n<sub>e</sub> &times; n<sub>h</sub> = n<sub>i</sub><sup>2</sup>",
+    "formulaSub": "n_e: free electrons, n_h: holes, n_i: intrinsic carrier concentration",
+    "analogy": "Like a perfectly balanced seesaw; if one side goes up (electrons), the other side must go down (holes).",
+    "topic": "Semiconductor Physics"
+  },
+  {
+    "id": 11,
+    "hook": "The P-N\nJunction",
+    "story": "When P-type and N-type semiconductors are joined, electrons diffuse from the N-side and holes from the P-side across the junction. As they combine, they leave behind fixed impurity ions that create an opposing electric field. This forms a 'depletion layer'—a central zone completely empty of free charge carriers that stops further diffusion.",
+    "formula": "",
+    "formulaSub": "",
+    "analogy": "Like a border wall built from the discarded backpacks of crossing travelers, it eventually stops anyone else from passing.",
+    "topic": "P-N Junction"
+  },
+  {
+    "id": 1,
+    "hook": "The Depletion\nLayer",
+    "story": "As you increase doping in a semiconductor, the depletion layer shrinks. Conversely, as temperature rises, the depletion layer expands. The PN junction itself behaves as a non-ohmic device due to the nonlinear relationship between current and voltage.",
+    "formula": "E = V/d",
+    "formulaSub": "E is electric field, V is potential barrier, d is width of the depletion layer.",
+    "analogy": "Like a crowded room: adding more people compresses the empty space, while increasing energy causes everyone to spread out.",
+    "topic": "Semiconductors"
+  },
+  {
+    "id": 2,
+    "hook": "The Potential\nBarrier",
+    "story": "At the PN junction, a natural potential barrier forms that blocks the majority charge carriers from crossing. For Germanium, this contact potential is around 0.3V, and for Silicon, it is 0.7V. This electric field acts as a wall until an external voltage helps carriers across.",
+    "formula": "E &asymp; 10<sup>5</sup> V/m",
+    "formulaSub": "The intense electric field produced by the potential barrier across a tiny distance.",
+    "analogy": "It's like a toll booth on a highway; you need a minimum amount of energy to push through the barrier.",
+    "topic": "P-N Junction"
+  },
+  {
+    "id": 3,
+    "hook": "Diffusion vs\nDrift",
+    "story": "In a PN junction, diffusion current flows from the P to the N side, driven by differences in concentration. Drift current moves in the opposite direction, driven by the electric field. Without any external battery, these two currents perfectly balance out, resulting in zero net current.",
+    "formula": "I<sub>diffusion</sub> = I<sub>drift</sub>",
+    "formulaSub": "Under unbiased conditions, the net current is precisely zero.",
+    "analogy": "Like two equally matched arm wrestlers pushing against each other, there is a lot of force but zero net movement.",
+    "topic": "P-N Junction"
+  },
+  {
+    "id": 4,
+    "hook": "Forward\nBiasing",
+    "story": "When the P-side is connected to positive and the N-side to negative, it opposes the natural potential barrier. The depletion layer shrinks, allowing majority charge carriers to easily flood across the junction. This results in a substantial current flowing in the milli-ampere range.",
+    "formula": "V<sub>net</sub> = V<sub>applied</sub> - V<sub>B</sub>",
+    "formulaSub": "The effective potential barrier decreases, promoting heavy charge flow.",
+    "analogy": "It's like pushing a swinging door in the direction it naturally opens; traffic easily rushes through.",
+    "topic": "Biasing"
+  },
+  {
+    "id": 5,
+    "hook": "Reverse\nBiasing",
+    "story": "By making the P-side negative and N-side positive, the external voltage aligns with the barrier potential. The depletion layer widens, completely blocking majority carriers. Only a tiny trickle of minority carriers slips through, creating a microscopic reverse saturation current.",
+    "formula": "I<sub>r</sub> &asymp; constant",
+    "formulaSub": "Reverse saturation current is very small (micro-amperes) and mostly unaffected by voltage until breakdown.",
+    "analogy": "Like pushing against a heavily locked door, only a tiny draft (minority carriers) manages to get through the cracks.",
+    "topic": "Biasing"
+  },
+  {
+    "id": 6,
+    "hook": "Zener &\nAvalanche",
+    "story": "If reverse bias is pushed too far, the diode breaks down and massive current flows. Zener breakdown occurs at lower voltages in heavily doped diodes when the intense electric field directly tears bonds apart. Avalanche breakdown happens at higher voltages when accelerated carriers smash into atoms, triggering a chain reaction.",
+    "formula": "V &ge; V<sub>Z</sub>",
+    "formulaSub": "V_Z is the breakdown voltage where the reverse current spikes dramatically.",
+    "analogy": "Zener is like water pressure directly cracking a dam wall, while Avalanche is a snowball rolling downhill to cause a massive slide.",
+    "topic": "Diode Breakdown"
+  },
+  {
+    "id": 7,
+    "hook": "Diode\nResistance",
+    "story": "A PN junction offers vastly different resistance depending on the direction of current. In forward bias, the dynamic resistance is very low, typically around 100 ohms. In reverse bias, the resistance skyrockets to around a million ohms, effectively acting as an open switch.",
+    "formula": "R<sub>f</sub> = &Delta;V<sub>f</sub> / &Delta;I<sub>f</sub>",
+    "formulaSub": "Dynamic forward resistance (R_f) and reverse resistance (R_r) dictate current flow.",
+    "analogy": "Forward bias is a wide-open 10-lane highway, while reverse bias is a road choked with barricades.",
+    "topic": "Diode Characteristics"
+  },
+  {
+    "id": 8,
+    "hook": "Light Emitting\nDiode",
+    "story": "An LED is a heavily doped, forward-biased diode that emits spontaneous light. When electrons and holes recombine at the junction, they release their excess energy as photons. They are fast, consume low power, and emit nearly monochromatic light.",
+    "formula": "h&nu; &asymp; E<sub>g</sub>",
+    "formulaSub": "The energy of the emitted photon equals the band gap energy.",
+    "analogy": "Like kids on a playground slide; as electrons slide down to recombine, they celebrate by shooting off a burst of light!",
+    "topic": "Optoelectronics"
+  },
+  {
+    "id": 9,
+    "hook": "The\nPhotodiode",
+    "story": "A photodiode operates in reverse bias and acts as a light detector. Normally, only a tiny dark current flows. When light illuminates the junction, it creates new electron-hole pairs, causing the reverse current to increase in direct proportion to the light intensity.",
+    "formula": "I &prop; Intensity",
+    "formulaSub": "The reverse photocurrent increases as the intensity of illumination increases.",
+    "analogy": "It's like a solar-powered security gate; the brighter the light shining on it, the wider it opens to let current through.",
+    "topic": "Optoelectronics"
+  },
+  {
+    "id": 10,
+    "hook": "The Solar\nCell",
+    "story": "A solar cell is a large P-N junction that converts light directly into electrical energy without any external battery. Incoming photons create electron-hole pairs that are separated by the junction's internal electric field, generating a photo-voltage.",
+    "formula": "h&nu; > E<sub>g</sub>",
+    "formulaSub": "Incident photons must have more energy than the band gap to generate charge carriers.",
+    "analogy": "Like a water wheel; sunlight acts as the flowing river, continuously pushing electrons to create electrical power.",
+    "topic": "Optoelectronics"
+  },
+  {
+    "id": 11,
+    "hook": "Voltage\nRegulator",
+    "story": "A Zener diode is uniquely designed to operate in the reverse breakdown region. Once breakdown occurs, it maintains a strictly constant voltage across its terminals, even if the input voltage or load current fluctuates. Any excess voltage simply drops across a series resistor.",
+    "formula": "V<sub>0</sub> = V<sub>Z</sub> = V<sub>in</sub> - RI",
+    "formulaSub": "The output voltage is clamped firmly at the Zener voltage.",
+    "analogy": "It's like an overflow drain in a bathtub; no matter how much extra water you pour in, the water level never rises above the drain.",
+    "topic": "Semiconductor Devices"
+  },
+  {
+    "id": 12,
+    "hook": "Half-Wave\nRectifier",
+    "story": "A half-wave rectifier uses a single diode to convert alternating current (AC) into pulsating direct current (DC). It only allows the positive half-cycle of the AC wave to pass, while completely blocking the negative half-cycle.",
+    "formula": "I<sub>dc</sub> = I<sub>m</sub>/&pi;",
+    "formulaSub": "The average DC current output where I_m is the peak current.",
+    "analogy": "Like a nightclub bouncer who only lets people wearing red shirts inside, completely turning away everyone else.",
+    "topic": "Rectifiers"
+  },
+  {
+    "id": 13,
+    "hook": "Full-Wave\nRectifier",
+    "story": "Using two diodes and a center-tapped transformer, a full-wave rectifier captures both halves of the AC wave. When one diode blocks the negative cycle, the other diode is forward-biased, ensuring current constantly flows through the load in the same direction.",
+    "formula": "I<sub>dc</sub> = 2I<sub>m</sub>/&pi;",
+    "formulaSub": "The average DC current is double that of a half-wave rectifier.",
+    "analogy": "It's like rowing a boat with two oars instead of one; you get continuous forward motion on every stroke.",
+    "topic": "Rectifiers"
+  },
+  {
+    "id": 14,
+    "hook": "The Bridge\nRectifier",
+    "story": "A bridge rectifier uses four diodes in a smart diamond arrangement to achieve full-wave rectification without a bulky center-tapped transformer. During each AC half-cycle, a diagonal pair of diodes takes turns guiding the current uniformly through the load.",
+    "formula": "PIV = V<sub>m</sub>",
+    "formulaSub": "The Peak Inverse Voltage is equal to the maximum secondary voltage.",
+    "analogy": "Like a clever system of one-way streets that guarantees cars always end up driving north, no matter which way they enter.",
+    "topic": "Rectifiers"
+  },
+  {
+    "id": 15,
+    "hook": "Ripple &\nEfficiency",
+    "story": "A rectifier's output isn't perfectly smooth DC; it contains AC fluctuations called ripples. The ripple factor measures this bumpiness. A full-wave rectifier is far superior, boasting a much lower ripple factor and doubling the efficiency compared to a half-wave setup.",
+    "formula": "r = I<sub>ac</sub> / I<sub>dc</sub>",
+    "formulaSub": "Ripple factor (r) is the ratio of the AC component to the DC component in the output.",
+    "analogy": "Imagine a dirt road; a half-wave rectifier leaves deep potholes, but a full-wave rectifier smooths it out to small speed bumps.",
+    "topic": "Rectifiers"
+  },
+  {
+    "id": 16,
+    "hook": "Smoothing\nFilters",
+    "story": "To turn pulsating rectifier output into pure, steady DC, filter circuits are used. Capacitors act in parallel to swallow AC ripples, while inductors act in series to block them. The Pi-filter combines both methods to deliver an almost perfectly smooth output.",
+    "formula": "I<sub>rms</sub> = &radic;(I<sub>ac</sub><sup>2</sup> + I<sub>dc</sub><sup>2</sup>)",
+    "formulaSub": "Filters aim to minimize the AC component in the total output current.",
+    "analogy": "It's like the shock absorbers on your car; they absorb the bumpy road from the rectifier to give you a perfectly smooth ride.",
+    "topic": "Rectifiers"
+  },
+  {
+    "id": 17,
+    "hook": "Basic Logic\nGates",
+    "story": "Logic gates are the fundamental building blocks of digital circuits, making decisions based on Boolean algebra. The OR gate outputs 1 if any input is 1. The AND gate outputs 1 only if all inputs are 1. The NOT gate simply flips 0 to 1 and vice versa.",
+    "formula": "Y = A + B (OR), Y = A &middot; B (AND)",
+    "formulaSub": "Mathematical representation of logical OR and logical AND operations.",
+    "analogy": "AND is like a vault needing two separate keys to open. OR is a room with two doors; either one lets you inside.",
+    "topic": "Logic Gates"
+  },
+  {
+    "id": 18,
+    "hook": "Universal\nGates",
+    "story": "By combining basic gates, we create NAND and NOR gates. These are famously known as 'universal gates' because you can construct literally any complex digital circuit in existence using only NAND gates or only NOR gates.",
+    "formula": "Y = (A &middot; B)' (NAND)",
+    "formulaSub": "The Boolean expressions represent inverted AND and inverted OR logic.",
+    "analogy": "They are like the ultimate Lego bricks; with enough of just this single type of brick, you can build any structure you imagine.",
+    "topic": "Logic Gates"
+  },
+  {
+    "id": 1,
+    "hook": "Universal\nLogic Gates",
+    "story": "NAND and NOR gates act as the universal building blocks of digital circuits. By repeatedly connecting these gates together, you can construct any other basic logic gate, such as NOT, AND, and OR, without needing their specialized components.",
+    "formula": "Y = (A·B)̅ (NAND), Y = (A+B)̅ (NOR)",
+    "formulaSub": "A and B are binary inputs, and Y is the inverted logical output.",
+    "analogy": "Like universal Lego blocks, you can combine identical NAND or NOR gates to build any complex digital structure.",
+    "topic": "Digital Logic Gates"
+  },
+  {
+    "id": 2,
+    "hook": "Exclusive\nLogic Gates",
+    "story": "The XOR (Exclusive-OR) gate outputs a '1' only when exactly one of its inputs is '1'. Conversely, the XNOR (Exclusive-NOR) gate outputs a '1' only when both inputs are identical. These gates are fundamental for parity checking and binary arithmetic.",
+    "formula": "Y = A ⊕ B (XOR), Y = A ⊙ B (XNOR)",
+    "formulaSub": "A and B are inputs. ⊕ represents exclusive OR, and ⊙ represents exclusive NOR.",
+    "analogy": "An XOR gate is like a two-way light switch in a hallway; flipping either switch toggles the light, but matching switch positions turn it off.",
+    "topic": "Digital Logic Gates"
+  },
+  {
+    "id": 3,
+    "hook": "Basic\nLogic Gates",
+    "story": "Digital circuits rely on fundamental logic gates to perform boolean operations. An AND gate outputs true only if all inputs are true, an OR gate outputs true if any input is true, and a NOT gate inverts the input signal.",
+    "formula": "Y = A·B (AND), Y = A+B (OR), Y = A̅ (NOT)",
+    "formulaSub": "A and B are logical inputs, and Y is the resulting boolean output.",
+    "analogy": "An AND gate is a lock requiring two keys to open, while an OR gate is a room with two separate doors allowing entry.",
+    "topic": "Digital Logic Gates"
+  },
+  {
+    "id": 4,
+    "hook": "Static vs Dynamic\nResistance",
+    "story": "When a p-n junction diode is forward biased, the current does not increase linearly with the voltage. This non-ohmic behavior requires us to define two resistances: static resistance for a specific DC voltage, and dynamic resistance for small varying changes in voltage and current.",
+    "formula": "R = V<sub>F</sub> / I<sub>F</sub> (Static), r = ΔV<sub>F</sub> / ΔI<sub>F</sub> (Dynamic)",
+    "formulaSub": "V<sub>F</sub> and I<sub>F</sub> are forward bias voltage and current, and Δ denotes a small change.",
+    "analogy": "Static resistance is like the total effort to push a heavy box, while dynamic resistance is the extra effort needed to push it just a bit faster.",
+    "topic": "Semiconductor Diodes"
+  },
+  {
+    "id": 5,
+    "hook": "Zener Diode\nBreakdown",
+    "story": "A Zener diode is heavily doped, leading to a low reverse breakdown voltage known as the Zener voltage. Once the reverse bias reaches this voltage, the current increases sharply but the voltage across the diode remains practically constant, making it ideal for voltage regulation.",
+    "formula": "V<sub>0</sub> = V<sub>i</sub> - R<sub>i</sub>I<sub>i</sub> = V<sub>Z</sub>",
+    "formulaSub": "V<sub>0</sub> is output voltage, V<sub>i</sub> is input voltage, I<sub>i</sub> is input current, and V<sub>Z</sub> is the constant Zener voltage.",
+    "analogy": "Like a pressure relief valve on a boiler, it vents out excess current to maintain a perfectly stable voltage pressure.",
+    "topic": "Semiconductor Diodes"
+  },
+  {
+    "id": 6,
+    "hook": "Identifying\nCircuit Components",
+    "story": "Electronic components behave distinctively under DC voltage from a multimeter. A resistor conducts equally in both directions, a diode conducts heavily in only one direction, an LED conducts in one direction while emitting light, and a capacitor blocks DC completely after a brief initial charging spike.",
+    "formula": "I<sub>DC</sub> = 0 (Capacitor steady state)",
+    "formulaSub": "A capacitor eventually blocks direct current entirely once it fully charges.",
+    "analogy": "Testing components with a multimeter is like checking pipes: resistors are open tubes, diodes are one-way valves, and capacitors are dead-ends that fill up quickly.",
+    "topic": "Electronics Basics"
+  }
+],
   "gravitation": [
 {"id":"chap2_01","topic":"The Discovery of the Law of Gravitation","hook":"","story":"Four minds across two centuries built one truth. Copernicus dared say Earth moves. Brahe spent a lifetime measuring stars with naked-eye precision. Kepler mined that data into three elegant laws. Newton then asked why orbits curve at all — and found one force governing falling apples and orbiting moons alike, unifying heaven and earth under a single equation.","formula":"No single formula — a 4-stage scientific lineage","formulaSub":"Copernicus (hypothesis) → Brahe (data) → Kepler (empirical laws) → Newton (unifying theory)","analogy":"💡 Analogy: Like a relay race where each scientist passed the baton — observation to mathematics to unifying theory — until Newton crossed the finish line with one law explaining everything from apples to planets."},
 
@@ -1655,7 +1972,7 @@ html, body {
       <button class="nav-btn" onclick="document.getElementById('physics-chaps').classList.toggle('hidden')" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <div class="nav-btn-title" style="font-size: 1.2rem;">🪐 Physics</div>
-          <div class="nav-btn-sub">3 Chapters Available</div>
+          <div class="nav-btn-sub">4 Chapters Available</div>
         </div>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </button>
@@ -1673,6 +1990,11 @@ html, body {
         
         <button class="nav-btn chapter-jump-btn" data-chapter="units_dimensions" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
           <div class="nav-btn-title" style="font-size: 0.95rem;">📏 Units & Dimensions</div>
+          <div class="nav-btn-sub chapter-card-range" style="font-size: 0.7rem;"></div>
+        </button>
+        
+        <button class="nav-btn chapter-jump-btn" data-chapter="semiconductors" style="padding: 12px 15px; background: rgba(255,255,255,0.02);">
+          <div class="nav-btn-title" style="font-size: 0.95rem;">📱 Semiconductors</div>
           <div class="nav-btn-sub chapter-card-range" style="font-size: 0.7rem;"></div>
         </button>
       </div>
@@ -1742,11 +2064,12 @@ async function initApp() {
 }
 
 // Chapter ordering — single source of truth
-const CHAPTER_ORDER = ['electrostatics', 'gravitation', 'units_dimensions'];
+const CHAPTER_ORDER = ['electrostatics', 'gravitation', 'units_dimensions', 'semiconductors'];
 const CHAPTER_META = {
   electrostatics:    { title: 'Electrostatics · Ch 01',       icon: '⚡' },
   gravitation:       { title: 'Gravitation · Ch 08',          icon: '🍎' },
-  units_dimensions:  { title: 'Units & Dimensions · Ch 02',   icon: '📏' }
+  units_dimensions:  { title: 'Units & Dimensions · Ch 02',   icon: '📏' },
+  semiconductors:    { title: 'Semiconductors · Ch 14',       icon: '📱' }
 };
 
 // Stores the start index of each chapter in the flat concepts array
